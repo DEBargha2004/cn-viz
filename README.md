@@ -1,12 +1,13 @@
 # Computer Networks Visualizations (CN-Viz)
 
-An interactive learning platform designed to visualize complex computer network protocols, system topologies, and data communication algorithms through parameter-driven simulations.
+An interactive learning platform designed to visualize complex computer network protocols, system topologies, and data communication algorithms through parameter-driven simulations. Built and maintained by [Debargha Saha](https://github.com/DEBargha2004).
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React_18-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
 ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat-square&logo=shadcnui&logoColor=white)
+[![Author](https://img.shields.io/badge/Author-Debargha_Saha-indigo?style=flat-square&logo=github)](https://github.com/DEBargha2004)
 
 ---
 

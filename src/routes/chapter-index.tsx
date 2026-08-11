@@ -4,7 +4,8 @@ import { getAllChapterMetas } from "../lib/content";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Input } from "../components/ui/input";
 import { Badge } from "../components/ui/badge";
-import { BookOpen, ArrowRight, Search, Sparkles, Layers, Sliders, Zap } from "lucide-react";
+import { BookOpen, ArrowRight, Search, Sparkles, Layers, Sliders, Zap, Heart } from "lucide-react";
+import { LuGithub } from "react-icons/lu";
 
 export default function ChapterIndex() {
   const chapters = getAllChapterMetas();
@@ -29,9 +30,21 @@ export default function ChapterIndex() {
         <div className="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-primary/10 blur-3xl" />
         
         <div className="relative flex flex-col gap-5 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary w-fit shadow-2xs">
-            <Sparkles className="size-3.5" />
-            <span>INTERACTIVE COMPUTER NETWORKS PLATFORM</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary w-fit shadow-2xs">
+              <Sparkles className="size-3.5" />
+              <span>INTERACTIVE COMPUTER NETWORKS PLATFORM</span>
+            </div>
+            
+            <a
+              href="https://github.com/DEBargha2004"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-secondary/60 hover:bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-all duration-200 cursor-pointer"
+            >
+              <LuGithub className="size-3.5" />
+              <span>Built by <strong className="text-foreground">Debargha Saha</strong></span>
+            </a>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground leading-[1.15]">
@@ -168,6 +181,24 @@ export default function ChapterIndex() {
           </div>
         )}
       </section>
+
+      {/* Index Footer */}
+      <footer className="mt-4 pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <span>CN-Viz • Interactive Computer Networks Platform</span>
+        <div className="flex items-center gap-1.5">
+          <span>Built and maintained with</span>
+          <Heart className="size-3.5 fill-rose-500 text-rose-500 inline" />
+          <span>by</span>
+          <a
+            href="https://github.com/DEBargha2004"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-foreground hover:text-primary transition-colors underline decoration-primary/40 underline-offset-4"
+          >
+            Debargha Saha
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
