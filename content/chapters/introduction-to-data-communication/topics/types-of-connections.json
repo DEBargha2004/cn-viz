@@ -1,0 +1,15 @@
+{
+  "id": "types-of-connections",
+  "title": "Types of Connections",
+  "markdown": "Connections between devices fall into two broad categories:\n\n1. **Point-to-Point** — A dedicated link between exactly two devices. The entire capacity of the link is reserved for those two devices. *Example: A TV remote control sending a signal to a television.*\n2. **Multipoint** (also called *multidrop*) — A connection in which more than two devices share a single link. The channel capacity is shared, either spatially or temporally. *Example: Multiple terminals connected to a mainframe via a shared bus.*",
+  "visualizations": [
+    {
+      "vizKey": "network-connection-types",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {
+        "connectionType": "point-to-point"
+      }
+    }
+  ]
+}

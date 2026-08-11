@@ -1,0 +1,13 @@
+{
+  "id": "protocols",
+  "title": "Protocols",
+  "markdown": "A **protocol** is a set of rules that govern data communications. It determines *what* is communicated, *how* it is communicated, and *when* it is communicated.\n\n### Key Elements of a Protocol\n\n1. **Syntax** — The structure or format of the data. It indicates how to read the bits and defines field delineation (where each field starts and ends in a frame).\n2. **Semantics** — The meaning of each section of bits. It specifies which fields define what action should be taken (e.g. whether a bit pattern represents an address, data, or control information).\n3. **Timing** — Two characteristics:\n   - **When** data should be sent.\n   - **How fast** it can be sent (the data rate the receiver can handle).",
+  "visualizations": [
+    {
+      "vizKey": "network-protocol-elements",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

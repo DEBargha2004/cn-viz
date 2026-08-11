@@ -1,0 +1,15 @@
+{
+  "id": "data-communications",
+  "title": "Data Communications",
+  "markdown": "**Telecommunication** means communication at a distance. **Data** refers to information presented in whatever form is agreed upon by the parties creating and using it.\n\n**Data communications** is the exchange of data between two devices via some form of transmission medium such as a wire cable.\n\n### Five Components of Data Communication\n\n1. **Message** — The information (data) to be communicated. Common forms include text, numbers, pictures, audio, and video.\n2. **Sender** — The device that sends the data message (e.g. computer, telephone handset, video camera).\n3. **Receiver** — The device that receives the message (e.g. computer, workstation, television).\n4. **Transmission Medium** — The physical path by which a message travels from sender to receiver (e.g. twisted-pair wire, coaxial cable, fiber-optic cable, radio waves).\n5. **Protocol** — A set of rules that govern data communications. It determines *what* is communicated, *how* it is communicated, and *when* it is communicated.",
+  "visualizations": [
+    {
+      "vizKey": "network-five-components",
+      "stateScope": "local",
+      "props": {
+        "layout": "sender-medium-receiver"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

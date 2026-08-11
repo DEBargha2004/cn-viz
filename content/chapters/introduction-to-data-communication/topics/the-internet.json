@@ -1,0 +1,13 @@
+{
+  "id": "the-internet",
+  "title": "The Internet",
+  "markdown": "The **Internet** is the global system of interconnected computer networks that uses the **TCP/IP** protocol suite to communicate between networks and devices.\n\n- It is a *network of networks* — consisting of private, public, academic, business, and government networks of local to global scope.\n- These networks are linked by a broad array of electronic, wireless, and optical networking technologies.\n- The Internet carries a vast range of information resources and services, including:\n  - The **World Wide Web** (interlinked hypertext documents and applications)\n  - **Electronic mail**\n  - **Telephony** (VoIP)\n  - **File sharing**\n\n### Hierarchical Organization\n\nThe Internet is organized hierarchically through **Internet Service Providers (ISPs)**:\n\n1. **Tier-1 ISPs** — International backbone networks (e.g. AT&T, NTT) that peer with each other.\n2. **Tier-2 ISPs** — Regional providers that pay Tier-1 ISPs for transit and peer with other Tier-2 ISPs.\n3. **Tier-3 ISPs** (Local / Access ISPs) — Provide last-mile connectivity directly to end users.",
+  "visualizations": [
+    {
+      "vizKey": "network-isp-hierarchy",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

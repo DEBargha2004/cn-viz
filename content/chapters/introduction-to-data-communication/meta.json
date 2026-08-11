@@ -1,0 +1,15 @@
+{
+  "id": "introduction-to-data-communication",
+  "title": "Introduction to Data Communication & Computer Networks",
+  "order": 1,
+  "topicOrder": [
+    "data-communications",
+    "data-flow-modes",
+    "networks-overview",
+    "types-of-connections",
+    "network-topology",
+    "the-internet",
+    "protocols",
+    "protocols-and-standards"
+  ]
+}

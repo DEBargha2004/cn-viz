@@ -1,0 +1,6 @@
+{
+  "id": "protocols-and-standards",
+  "title": "Protocols & Standards",
+  "markdown": "### Protocols\n\nA **protocol** is synonymous with *rule*. Protocols define the rules that govern data communications between devices.\n\n### Standards\n\n**Standards** are agreed-upon rules that ensure devices from different manufacturers can communicate. Standards fall into two categories:\n\n- **De facto** (\"by fact\") — Standards adopted through widespread use rather than formal approval (e.g. the original TCP/IP suite).\n- **De jure** (\"by law\") — Standards established by an officially recognized body (e.g. IEEE 802.11 for Wi-Fi).\n\n### Key Standards Organizations\n\n- **ISO** — International Organization for Standardization\n- **IEEE** — Institute of Electrical and Electronics Engineers\n- **ITU-T** — International Telecommunication Union\n- **ANSI** — American National Standards Institute\n- **IETF** — Internet Engineering Task Force (publishes RFCs)",
+  "visualizations": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "data-flow-modes",
+  "title": "Data Flow: Simplex, Half-Duplex, Full-Duplex",
+  "markdown": "Communication between two devices can be **simplex**, **half-duplex**, or **full-duplex**.\n\n1. **Simplex** — Transmission is unidirectional; one station can only transmit and the other can only receive. *Example: Cable TV, keyboard to monitor.*\n2. **Half-Duplex** — Each station can both transmit and receive, but **not at the same time**. When one device sends, the other must wait. *Example: Walkie-talkies, police radio.*\n3. **Full-Duplex** — Both stations can transmit and receive **simultaneously**. *Example: Telephone network, modern Ethernet.*",
+  "visualizations": [
+    {
+      "vizKey": "network-data-flow-modes",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {
+        "mode": "simplex"
+      }
+    }
+  ]
+}

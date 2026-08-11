@@ -1,0 +1,15 @@
+{
+  "id": "network-topology",
+  "title": "Network Topology",
+  "markdown": "**Network topology** describes the arrangement of nodes and connections in a network.\n\n- A **logical topology** is a conceptual representation of how devices operate at particular layers of abstraction.\n- A **physical topology** details how devices are physically connected.\n\nBoth logical and physical topologies can be represented as visual diagrams.\n\n### Topology Comparison\n\n| Parameter | Bus | Ring | Star | Mesh |\n|---|---|---|---|---|\n| Best For | Small networks | Small–Medium | Small–Large | Small (critical) |\n| Cable Required | Least (1 backbone) | Moderate (*n* links) | Moderate (*n* links) | Most (*n(n−1)/2* links) |\n| Traffic Handling | Low (collisions) | Medium (token-based) | High (switched) | High (dedicated links) |\n| Fault Tolerance | Low (backbone break fails all) | Low (ring break fails all) | Moderate (hub is single point of failure) | Very High (redundant paths) |\n| Cost | Low | Moderate | Moderate | Very High |\n\n> A **hybrid topology** combines two or more basic topologies — for example, a star backbone connecting three bus subnetworks.\n\nMore: [Network Topologies — Advantages & Disadvantages](https://www.comparitech.com/net-admin/network-topologies-advantages-disadvantages/)",
+  "visualizations": [
+    {
+      "vizKey": "network-topology-explorer",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {
+        "topology": "star"
+      }
+    }
+  ]
+}
