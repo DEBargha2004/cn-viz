@@ -1,0 +1,13 @@
+{
+  "id": "layered-tasks",
+  "title": "Layered Tasks",
+  "markdown": "We use the concept of layers in daily life to break complex processes into manageable steps.\n\n### Example: Sending a Postal Letter\n\nConsider two friends communicating via postal mail. Sending a letter would be immensely complex without the layered services of the post office:\n\n1. **Higher Layers** — The sender writes the letter, puts it in an envelope, and drops it in a mailbox. The receiver picks up the letter, removes it from the envelope, and reads it.\n2. **Middle Layers** — The letter is transported between local mailboxes and the post office.\n3. **Lower Layers** — The post office passes the parcel to a carrier for transport between cities.\n\n### Key Concepts\n\n- **Sender & Receiver** — Operating at the higher layers to create and consume messages.\n- **Carrier & Transport** — Operating at the lower layers to handle physical movement.\n- **Hierarchy** — Each layer relies on services provided by the layer directly below it.",
+  "visualizations": [
+    {
+      "vizKey": "network-layered-analogy",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

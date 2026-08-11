@@ -1,0 +1,146 @@
+[
+  {
+    "page": 1,
+    "text": "                    Network Models\n\n                       Lecture 02\n                         Dr. Alak Roy\n                      Assistant Professor\n              Department of Information Technology\n                    Tripura University, India\n                Email: alakroy@tripurauniv.ac.in\n                   Website: www.alakroy.in\n\nMcGraw-Hill                                 \u00a9The McGraw-Hill Companies, Inc., 2000"
+  },
+  {
+    "page": 2,
+    "text": " 2-1 LAYERED TASKS\n\n\u2022 We use the concept of layers in our daily life.\n\u2022 Example\n  Example:: Consider two friends who communicate\n  through postal mail.\n\u2022 The process of sending a letter to a friend would be\n  complex if there were no services available from the\n  post office\n\n Topics discussed in this section:\n Sender, Receiver, and Carrier\n Hierarchy\n2.2"
+  },
+  {
+    "page": 3,
+    "text": "  Figure 2.1 Tasks involved in sending a letter\n\n2.3"
+  },
+  {
+    "page": 4,
+    "text": " 2-2 THE OSI MODEL\n\n\u2022 Established in 1947,\n                  1947, the International Standards\n  Organization (ISO\n                ISO)) is a multinational body dedicated\n  to worldwide agreement on international standards.\n\n\u2022 An ISO standard that covers all aspects of network\n  communications is the Open Systems Interconnection\n  (OSI\n   OSI)) model\n         model.. It was first introduced in the late 1970s\n\n  Topics discussed in this section:\n Layered Architecture\n Peer-to-Peer Processes\n Encapsulation\n\n2.4"
+  },
+  {
+    "page": 5,
+    "text": "                ISO is the organization. OSI is the model.\n ISO/OSI MODEL:\n 1. For successful communication, two systems must follow a common set of rules for\n    generating and interpreting messages.\n 2. The set of rules to be followed is very complex.\n 3. Layer approach provides a reliable approach to deal with a complex problem.\n 4. The communication functions are partitioned into a high hierarchical set of layers.\n Layered Approach:\n 1. A complex problem is divided into a number of pieces of meaningful and\n    comprehensive size.\n 2. It provides standard modular approach.\n 3. Each module can be developed and tested independently.\n 4. Allow easy enhancement and implementation of the functions of a particular layer\n    without affecting other layers.\n\n2.5"
+  },
+  {
+    "page": 6,
+    "text": "  Figure 2.2 Seven layers of the OSI model\n\n2.6"
+  },
+  {
+    "page": 7,
+    "text": " OSI MODEL\n  Q. What is the necessary to have layering in a network?\n\n  Ans: A computer network is a very complex system. It becomes very difficult to\n  implement as a single entity. The layered approach is divides a very complex task into\n  small species, each of which is independent of others & it allows a structured approach in\n  implementing a network.\n\n  Q. How two adjacent layers communicate in a layer network?\n\n  Ans.: In layered network, each layer has various entities & entity of Layer I provide\n  services to layer I+1. These services can be accessed through Service Assess Point (SAP),\n  which have some address through which the layer I+1 will access the services provided by\n  the layer I.\n\n2.7"
+  },
+  {
+    "page": 8,
+    "text": "  Figure 2.3 The interaction between layers in the OSI model\n\n2.8"
+  },
+  {
+    "page": 9,
+    "text": "  Figure 2.4 An exchange using the OSI model\n\n2.9"
+  },
+  {
+    "page": 10,
+    "text": " 2-3 LAYERS IN THE OSI MODEL\n\nIn this section we briefly describe the functions of each\nlayer in the OSI model\n\n  Topics discussed in this section:\n Physical Layer\n Data Link Layer\n Network Layer\n Transport Layer\n Session Layer\n Presentation Layer\n Application Layer\n\n2.10"
+  },
+  {
+    "page": 11,
+    "text": "  Figure 2.5 Physical layer\n\n       Functions\n       1. Raw bits transmission.\n       2. The physical layer is responsible for movements of individual bits from one\n          hop (node) to the next.\n\n2.11"
+  },
+  {
+    "page": 12,
+    "text": "  Figure 2.6 Data link layer\n\n   Functions of Data Link Layer:\n   1.Framing, Flow control, Error correction, Error detection.\n   2.The     data   link    layer     is      responsible        for   moving\n   frames from one hop (node) to the next.\n\n2.12"
+  },
+  {
+    "page": 13,
+    "text": "  Figure 2.7 Hop-to-hop delivery in Data link layer\n\n2.13"
+  },
+  {
+    "page": 14,
+    "text": "  Figure 2.8 Network layer\n\n Functions of Network Layer:\n 1. Routing.\n 2. The network layer is responsible for the delivery of individual packets from\n    the source host to the destination host.\n\n2.14"
+  },
+  {
+    "page": 15,
+    "text": "  Figure 2.9 Source-to-destination delivery\n\n2.15"
+  },
+  {
+    "page": 16,
+    "text": "  Figure 2.10 Transport layer\n\n Functions of Transport Layer:\n\n 1. Accept data from session layer & break up it into smaller units.\n\n 2. Provide efficient, reliable, cost effective services to its user.\n\n 3. The transport layer is responsible for the delivery of a message from one process to\n    another.\n\n2.16"
+  },
+  {
+    "page": 17,
+    "text": "  Figure 2.11 Reliable process-to-process delivery of a message\n\n2.17"
+  },
+  {
+    "page": 18,
+    "text": "Figure 2.12 Session layer\n\n Functions of Session Layer:\n\n 1. Establish session between different machines.\n\n 2. Manage dialog control.\n\n 3. The session layer is responsible for dialog control and synchronization.\n\n2.18"
+  },
+  {
+    "page": 19,
+    "text": "  Figure 2.13 Presentation layer\n\n  Function of Presentation Layer:\n\n  1.   The presentation layer is responsible for translation, compression, and\n       encryption.\n\n  2.   Deals with syntax & semantics of the information to be transmitted.\n\n2.19"
+  },
+  {
+    "page": 20,
+    "text": "  Figure 2.14 Application layer\n\n  Function of Application Layer:\n\n  1.   Continues variety of protocol that is needed to transfer files.\n\n  2.   Concerned with network security, DNS.\n\n  3.   The application layer is responsible for providing services to the user.\n\n2.20"
+  },
+  {
+    "page": 21,
+    "text": "  Figure 2.15 Summary of OSI layers\n\n2.21"
+  },
+  {
+    "page": 22,
+    "text": " 2-4 TCP/IP PROTOCOL SUITE\n\n \u2022     The layers in the TCP/IP protocol suite do not exactly match\n       those in the OSI model\n \u2022     The original TCP/IP protocol suite was defined as having\n       four layers\n              layers:: host\n                       host--to\n                             to--network\n                                 network,, internet\n                                            internet,, transport\n                                                        transport,, and\n       application..\n \u2022     However, when TCP/IP is compared to OSI, we can say that\n       the TCP/IP protocol suite is made of five layers:\n                                                       layers: physical\n       data link,\n            link, network\n                  network,, transport\n                            transport,, and application\n\n Topics discussed in this section:\n       Physical and Data Link Layers\n       Network Layer\n       Transport Layer\n       Application Layer\n2.22"
+  },
+  {
+    "page": 23,
+    "text": "  Figure 2.16 TCP/IP and OSI model\n\n2.23"
+  },
+  {
+    "page": 24,
+    "text": "  Figure 2.16 TCP/IP and OSI model\n        1. SMTP: Simple Mail Transfer Protocol.\n        2. FTP: File Transfer Protocol.\n        3. HTTP: Hyper Text Transfer Protocol.\n        4. DNS: Domain Name System.\n        5. SNMP: Simple Network Management Protocol.\n        6. TELNET: Network Protocol.\n        7. SCTP: Stream Control Transmission Protocol.\n        8. TCP: Transmission Control Protocol\n        9. UDP: User Datagram Protocol.\n        10. ICMP: Internet Control Message Protocol.\n        11. IGMP: Internet Group Message Protocol.\n        12. IP: Internet Protocol\n        13. RARP: Reverse Address Resolution Protocol.\n        14. ARP: Address Resolution Protocol\n2.24"
+  },
+  {
+    "page": 25,
+    "text": "TCP/IP: Transmission Control Protocol/Internet Protocol\n       \uf06e   TCP/IP stands for Transmission Control Protocol/Internet\n           Protocol. It is a set of protocols or rules and procedures that\n           governs communications among computers on the internet.\n           Although the entire internet protocol suite is commonly known as\n           TCP/IP, it is one of the core protocols of the Internet Protocol\n           Suite. It was developed in 1978 and driven by Vint Cerf and Bob\n           Kahn.\n       \uf06e   TCP/IP is a commonly used standard for transmitting data over\n           networks. In simple words, it is the suite of communication\n           protocols which connect network devices on the internet or used\n           to interconnect network devices on the internet. It decides how\n           the data will be exchanged over the internet through end-to-end\n           communications that include how the data should be arranged\n           into packets (bundles of information), addressed, sent, and\n           received at the destination. This communication protocol can also\n           be used to interconnect network devices in a private network\n           such an intranet or an extranet.\n2.25"
+  },
+  {
+    "page": 26,
+    "text": "TCP/IP: Transmission Control Protocol/Internet Protocol\n       \uf06e   How TCP/IP works?\n       As the name suggests, TCP/IP comprises two basic protocols: TCP\n       (transmission control protocol) and IP (Internet protocol).\n       \uf06e   TCP: The TCP allows applications to create channels of\n           communications across a network. It also allows a message to\n           be divided into smaller packets before they are transmitted over\n           the internet and then assembled in the right manner at the\n           destination address. So, it ensures the reliable transmission of\n           data across the network. Furthermore, it also checks errors in the\n           packets and requests for re-transmission if errors are found.\n       \uf06e   IP: The IP address tells the packets the address and route so\n           that they reach the right destination. It has a method that enables\n           gateway computers on the internet-connected network forward\n           the message after checking the IPS address. It is like a line of\n           workers passing coal from a mine to a mining cart.\n\n2.26"
+  },
+  {
+    "page": 27,
+    "text": "TCP/IP: Transmission Control Protocol/Internet Protocol\n\n TCP/IP model layers:\n TCP/IP, which is a standard layered protocol suite comprises a set of rules and\n procedures, is divided into four layers, on the basis of their functionality. Each\n layer has a specific protocol.\n 1.   The application layer is the scope within which applications, or processes, create user data and communicate this\n      data to other applications on another or the same host. The applications make use of the services provided by the\n      underlying lower layers, especially the transport layer which provides reliable or unreliable pipes to other processes.\n      The communications partners are characterized by the application architecture, such as the client\u2013server model and\n      peer-to-peer networking. This is the layer in which all application protocols, such as SMTP, FTP, SSH, HTTP, operate.\n      Processes are addressed via ports which essentially represent services.\n 2.   The transport layer performs host-to-host communications on either the local network or remote networks separated\n      by routers.[34] It provides a channel for the communication needs of applications. UDP is the basic transport layer\n      protocol, providing an unreliable connectionless datagram service. The Transmission Control Protocol provides flow-\n      control, connection establishment, and reliable transmission of data.\n 3.   The internet layer exchanges datagrams across network boundaries. It provides a uniform networking interface that\n      hides the actual topology (layout) of the underlying network connections. It is therefore also the layer that\n      establishes internetworking. Indeed, it defines and establishes the Internet. This layer defines the addressing and\n      routing structures used for the TCP/IP protocol suite. The primary protocol in this scope is the Internet Protocol,\n      which defines IP addresses. Its function in routing is to transport datagrams to the next host, functioning as an IP\n      router, that has the connectivity to a network closer to the final data destination.\n 4.   The link layer defines the networking methods within the scope of the local network link on which hosts communicate\n      without intervening routers. This layer includes the protocols used to describe the local network topology and the\n      interfaces needed to affect the transmission of Internet layer datagrams to next-neighbor hosts.\n\n2.27"
+  },
+  {
+    "page": 28,
+    "text": " 2-5 ADDRESSING in TCP/IP\n\n  Four levels of addresses are used in an internet\n  employing the TCP/IP protocols:\n    1. Physical Addresses\n    2. Logical Addresses\n    3. Port Addresses\n    4. Specific Addresses\n\n2.28"
+  },
+  {
+    "page": 29,
+    "text": "  Figure 2.18 Relationship of layers and addresses in TCP/IP\n\n2.29"
+  },
+  {
+    "page": 30,
+    "text": "       Example 2.1\n  In Figure 2.19 a node with physical address 10 sends a\n  frame to a node with physical address 87. The two\n  nodes are connected by a link (bus topology LAN). As\n  the figure shows, the computer with physical address 10\n  is the sender, and the computer with physical address 87\n  is the receiver.\n\n                Figure 2.19 Physical addresses\n2.30"
+  },
+  {
+    "page": 31,
+    "text": "          Example 2.2: Physical address\n\n Most local-area networks use a 48-bit (6-byte) physical\n address written as 12 hexadecimal digits; every byte (2\n hexadecimal digits) is separated by a colon, as shown\n below:\n\n                     07:01:02:01:2C:4B\n\n       A 6-byte (12 hexadecimal digits) physical address.\n\n2.31"
+  },
+  {
+    "page": 32,
+    "text": "          IPv4 Address\n  \u2022 IPv4 address is a 32-bit address that\n  \u2022 uniquely and universally defines                                      the\n    connection of a device to the Internet.\n\n  \u2022 The    address    space                          of      IPv4          is\n    232 or 4,294,967,296.\n\nFigure: Dotted-decimal notation and binary notation for an IPv4 address"
+  },
+  {
+    "page": 33,
+    "text": "       Example 2.3: IP addresses\n\n Figure 2.20 shows a part of an internet with two routers\n connecting three LANs.\n \u2022 Each device (computer or router) has a pair of\n    addresses (logical and physical) for each connection.\n \u2022 In this case, each computer is connected to only one\n    link and therefore has only one pair of addresses.\n \u2022 Each router, however, is connected to three networks\n    (only two are shown in the figure). So each router\n    has three pairs of addresses, one for each connection.\n\n2.33"
+  },
+  {
+    "page": 34,
+    "text": "Figure 2.20 IP addresses"
+  },
+  {
+    "page": 35,
+    "text": "          Example 2.5: Port address\n\n  \u2022     Port address is a 16-bit address represented by one\n        decimal number as shown.\n                                         753\n  \u2022 There are many application running on the computer.\n\n  \u2022     Each application run with a port no.(logically) on the\n        computer.\n\n         The logical addresses change from hop to hop,\n       but the physical and port addresses usually remain\n                            the same.\n\n2.35"
+  },
+  {
+    "page": 36,
+    "text": " Figure 2.21 shows two computers communicating via the Internet.\n \u2022 The sending computer is running three processes at this time with port\n     addresses a, b, and c.\n \u2022 The receiving computer is running two processes at this time with port\n     addresses j and k.\n \u2022 Process a in the sending computer needs to communicate with process j in\n     the receiving computer.\n \u2022 Note that although logical addresses change from hop to hop, physical and\n     port addresses remain the same from the source to destination.\n\n2.36"
+  }
+]

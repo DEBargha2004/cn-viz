@@ -1,0 +1,15 @@
+{
+  "id": "osi-data-link-layer",
+  "title": "Data Link Layer",
+  "markdown": "The **Data Link Layer** (Layer 2) transforms the physical layer's raw transmission facility into a reliable link, making the physical layer appear error-free to the upper layer.\n\n### Primary Responsibilities\n\n- **Framing** — Divides the bit stream received from the network layer into manageable data units called **frames**.\n- **Physical Addressing** — Adds a header containing the physical (MAC) address of the sender and receiver for hop-to-hop delivery.\n- **Flow Control** — Prevents a fast sender from overwhelming a slow receiver.\n- **Error Control** — Adds a trailer (**T₂**) containing CRC bits to detect corrupted frames and retransmit lost frames.\n- **Access Control** — Determines which device has control over a shared medium at any given time (MAC sublayer).",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "data-link"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "tcpip-addressing",
+  "title": "Addressing in TCP/IP",
+  "markdown": "TCP/IP uses **four levels of addresses** corresponding to different layers of the protocol suite:\n\n1. **Physical (MAC) Address** — 48-bit (6-byte) link-local address written in hexadecimal (`07:01:02:01:2C:4B`). *Changes at every hop across routers.*\n2. **Logical (IP) Address** — 32-bit (IPv4) or 128-bit (IPv6) global address written in dotted-decimal notation (`128.11.3.31`). *Remains constant end-to-end from source to destination.*\n3. **Port Address** — 16-bit integer (e.g. Port `80` for HTTP, Port `443` for HTTPS) identifying the target application process on a host. *Remains constant end-to-end.*\n4. **Specific Address** — User-friendly identifiers such as email addresses (`user@domain.com`) or URLs (`www.example.com`).\n\n### Hop-to-Hop vs. End-to-End Addressing\n\n- **Physical Addresses** operate locally per link: as a frame crosses a router, the old physical header is stripped and replaced with the next hop's physical MAC address.\n- **Logical (IP) Addresses** and **Port Addresses** remain unchanged throughout the entire journey from sender process to receiver process.",
+  "visualizations": [
+    {
+      "vizKey": "network-address-hierarchy",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-address-flow-example",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {
+        "addressType": "physical"
+      }
+    }
+  ]
+}

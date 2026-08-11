@@ -1,0 +1,20 @@
+{
+  "id": "the-osi-model",
+  "title": "Network Models: OSI & TCP/IP",
+  "order": 2,
+  "topicOrder": [
+    "layered-tasks",
+    "osi-model-intro",
+    "osi-layered-architecture",
+    "osi-physical-layer",
+    "osi-data-link-layer",
+    "osi-network-layer",
+    "osi-transport-layer",
+    "osi-session-layer",
+    "osi-presentation-layer",
+    "osi-application-layer",
+    "osi-summary",
+    "tcpip-protocol-suite",
+    "tcpip-addressing"
+  ]
+}

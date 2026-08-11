@@ -1,0 +1,15 @@
+{
+  "id": "osi-network-layer",
+  "title": "Network Layer",
+  "markdown": "The **Network Layer** (Layer 3) is responsible for the **source-to-destination (end-to-end)** delivery of individual packets across multiple networks or subnetworks.\n\n### Primary Responsibilities\n\n- **Logical Addressing** — Adds a header containing logical IP addresses (**H₃**) to distinguish source and destination systems across distinct networks.\n- **Routing** — Selects the optimal path for packets through intermediate routers and internetworks.\n- **Packetizing** — Encapsulates upper-layer segments into network packets (datagrams).\n\n> **Hop-to-Hop vs. End-to-End**: While the Data Link layer handles delivery between adjacent nodes on the same physical link, the Network layer ensures delivery from the original source host all the way to the final destination host.",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "network"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

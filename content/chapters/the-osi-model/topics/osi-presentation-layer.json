@@ -1,0 +1,15 @@
+{
+  "id": "osi-presentation-layer",
+  "title": "Presentation Layer",
+  "markdown": "The **Presentation Layer** (Layer 6) is concerned with the syntax and semantics of the information exchanged between two systems.\n\n### Primary Responsibilities\n\n- **Translation** — Converts data between sender-dependent formats and a common network format (e.g. ASCII to EBCDIC).\n- **Encryption & Decryption** — Transforms sensitive data into secure cipher text for transmission and decrypts it at the receiver.\n- **Compression** — Reduces the number of bits to be transmitted, optimizing bandwidth usage for text, images, and audio.",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "presentation"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

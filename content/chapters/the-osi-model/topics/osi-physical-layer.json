@@ -1,0 +1,15 @@
+{
+  "id": "osi-physical-layer",
+  "title": "Physical Layer",
+  "markdown": "The **Physical Layer** (Layer 1) coordinates the functions required to transmit a raw stream of bits over a physical medium.\n\n### Primary Responsibilities\n\n- **Bit Transmission** — Moves individual bits from one node (hop) to the next.\n- **Physical Characteristics** — Defines the mechanical and electrical specifications of interfaces and transmission media (cables, connectors, signal levels).\n- **Representation of Bits** — Defines how `0`s and `1`s are converted into electrical or optical signals.\n- **Data Rate & Synchronization** — Determines the transmission speed (bits per second) and clock synchronization between sender and receiver.\n- **Physical Topology & Transmission Mode** — Defines how devices are physically connected (bus, star, mesh) and the direction of transmission (simplex, half-duplex, full-duplex).",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "physical"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

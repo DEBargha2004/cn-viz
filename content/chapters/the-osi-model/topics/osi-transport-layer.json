@@ -1,0 +1,15 @@
+{
+  "id": "osi-transport-layer",
+  "title": "Transport Layer",
+  "markdown": "The **Transport Layer** (Layer 4) accepts data from the session layer, breaks it into smaller units if necessary, and ensures **process-to-process (end-to-end)** delivery of complete messages.\n\n### Primary Responsibilities\n\n- **Service-Point (Port) Addressing** — Ensures messages reach the specific application/process on a multi-tasking host using port numbers.\n- **Segmentation & Reassembly** — Divides messages into numbered segments and reassembles them correctly at the destination.\n- **Connection Control** — Supports connectionless (UDP) or connection-oriented (TCP) transmissions.\n- **Flow & Error Control** — Enforces end-to-end flow control and error recovery across the entire path.",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "transport"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

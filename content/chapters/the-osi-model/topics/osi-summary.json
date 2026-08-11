@@ -1,0 +1,15 @@
+{
+  "id": "osi-summary",
+  "title": "Summary of OSI Layers",
+  "markdown": "### Summary of the 7 OSI Layers\n\n| Layer | Name | Primary Function / Unit |\n|---|---|---|\n| **7** | **Application** | Network services for applications (HTTP, FTP, SMTP) |\n| **6** | **Presentation** | Data translation, encryption, and compression |\n| **5** | **Session** | Dialog control and checkpoint synchronization |\n| **4** | **Transport** | Process-to-process message delivery (Port addresses, Segments) |\n| **3** | **Network** | End-to-end packet delivery and routing (IP addresses, Packets) |\n| **2** | **Data Link** | Hop-to-hop frame delivery and error detection (MAC addresses, Frames) |\n| **1** | **Physical** | Bit transmission over physical media (Signals, Bits) |",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-stack",
+      "stateScope": "local",
+      "props": {
+        "mode": "summary"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

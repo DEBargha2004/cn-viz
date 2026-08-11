@@ -1,0 +1,15 @@
+{
+  "id": "osi-application-layer",
+  "title": "Application Layer",
+  "markdown": "The **Application Layer** (Layer 7) enables human users or software programs to access the network. It provides user interfaces and support for services such as email and file transfers.\n\n### Common Application Protocols\n\n- **HTTP / HTTPS** — HyperText Transfer Protocol for web browsing.\n- **SMTP** — Simple Mail Transfer Protocol for sending email.\n- **FTP** — File Transfer Protocol for file management.\n- **DNS** — Domain Name System for resolving domain names to IP addresses.\n- **TELNET / SSH** — Remote login and secure terminal access.",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "application"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "osi-model-intro",
+  "title": "The OSI Model",
+  "markdown": "Established in 1947, the **International Organization for Standardization (ISO)** is a multinational body dedicated to global agreement on international standards.\n\nAn ISO standard that covers all aspects of network communications is the **Open Systems Interconnection (OSI)** model, first introduced in the late 1970s.\n\n> **ISO vs. OSI**: **ISO** is the organization; **OSI** is the model.\n\n### Why a Layered Architecture?\n\nComputer networks are complex systems. Partitioning communication functions into a hierarchical stack of layers provides significant benefits:\n\n1. **Modularity** — A complex problem is divided into smaller, well-defined pieces.\n2. **Independent Development** — Each layer can be updated or replaced without affecting adjacent layers.\n3. **Standard Interfaces** — Adjacent layers communicate through clearly defined interfaces.\n4. **Interoperability** — Systems from different vendors can communicate if they adhere to the same layer standards.",
+  "visualizations": []
+}

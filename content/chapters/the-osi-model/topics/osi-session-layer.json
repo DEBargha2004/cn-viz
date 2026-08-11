@@ -1,0 +1,15 @@
+{
+  "id": "osi-session-layer",
+  "title": "Session Layer",
+  "markdown": "The **Session Layer** (Layer 5) is the network dialog controller. It establishes, maintains, and synchronizes interactions between communicating applications.\n\n### Primary Responsibilities\n\n- **Dialog Control** — Manages session modes (half-duplex or full-duplex communication between processes).\n- **Synchronization** — Inserts **checkpoints (syn markers)** into long data streams. If a failure occurs, transmission can resume from the last validated checkpoint rather than restarting from the beginning.",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-layer-detail",
+      "stateScope": "local",
+      "props": {
+        "layer": "session"
+      },
+      "paramOverrides": {}
+    }
+  ]
+}

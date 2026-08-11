@@ -1,0 +1,13 @@
+{
+  "id": "tcpip-protocol-suite",
+  "title": "TCP/IP Protocol Suite",
+  "markdown": "The **TCP/IP Protocol Suite** is the standard communication framework used by the Internet. Designed prior to the OSI model, TCP/IP originally specified four layers, commonly compared as a **5-layer model** when mapped against OSI.\n\n### Comparing TCP/IP and OSI\n\n| OSI Model | TCP/IP Protocol Suite | Key Protocols |\n|---|---|---|\n| **Application, Presentation, Session** | **Application Layer** | HTTP, FTP, SMTP, DNS, SNMP, SSH |\n| **Transport Layer** | **Transport Layer** | TCP, UDP, SCTP |\n| **Network Layer** | **Network (Internet) Layer** | IP, ICMP, IGMP, ARP, RARP |\n| **Data Link Layer** | **Link Layer** | Ethernet, Wi-Fi (802.11), PPP |\n| **Physical Layer** | **Physical Layer** | Copper wire, Fiber optics, Radio |\n\n### Core Protocols\n\n- **TCP (Transmission Control Protocol)** — Connection-oriented, reliable protocol that divides data into segments, tracks sequence numbers, and requests retransmission for lost packets.\n- **IP (Internet Protocol)** — Unreliable, connectionless protocol responsible for logical addressing and routing packets across intermediate networks.\n- **UDP (User Datagram Protocol)** — Lightweight, fast, connectionless protocol without flow control or guaranteed delivery.",
+  "visualizations": [
+    {
+      "vizKey": "network-tcpip-vs-osi",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}
