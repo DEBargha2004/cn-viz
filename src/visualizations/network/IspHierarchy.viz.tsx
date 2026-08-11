@@ -22,7 +22,7 @@ export default function IspHierarchy({ values }: Props) {
   return (
     <div className="flex flex-col space-y-5 p-4 sm:p-6 bg-card rounded-2xl border shadow-sm">
       {/* LARGE RESPONSIVE SVG CANVAS CONTAINER */}
-      <div className="w-full border rounded-2xl bg-slate-100/80 dark:bg-slate-950/90 relative overflow-hidden shadow-inner border-slate-200/80 dark:border-slate-800 min-h-[380px] sm:min-h-[420px] transition-colors duration-300">
+      <div className="w-full border rounded-2xl bg-slate-100/80 dark:bg-slate-950/90 relative overflow-hidden shadow-inner border-slate-200/80 dark:border-slate-800 min-h-[200px] sm:min-h-[360px] md:min-h-[420px] flex items-center justify-center p-2 sm:p-4 transition-colors duration-300">
         {/* Ambient Grid Background */}
         <div
           className="absolute inset-0 opacity-20 dark:opacity-25 pointer-events-none"
@@ -166,12 +166,12 @@ export default function IspHierarchy({ values }: Props) {
 
               {/* Right Side: NAP Interconnection */}
               <g transform="translate(380, 20)">
-                <text x="180" y="28" textAnchor="middle" className="fill-amber-600 dark:fill-amber-400 font-bold text-xs uppercase tracking-wider">NAP Peering Point</text>
+                <text x="180" y="20" textAnchor="middle" className="fill-amber-600 dark:fill-amber-400 font-bold text-xs uppercase tracking-wider">NAP Peering Point</text>
 
-                {/* Double arrows to NAP */}
-                <line x1="180" y1="90" x2="180" y2="154" stroke="currentColor" strokeWidth="3" markerStart="url(#isp-arrow-start)" markerEnd="url(#isp-arrow-end)" className="text-amber-500 dark:text-amber-400" />
-                <line x1="115" y1="225" x2="140" y2="200" stroke="currentColor" strokeWidth="3" markerStart="url(#isp-arrow-start)" markerEnd="url(#isp-arrow-end)" className="text-amber-500 dark:text-amber-400" />
-                <line x1="245" y1="225" x2="220" y2="200" stroke="currentColor" strokeWidth="3" markerStart="url(#isp-arrow-start)" markerEnd="url(#isp-arrow-end)" className="text-amber-500 dark:text-amber-400" />
+                {/* Mathematically Symmetrical Arrow Lines (Exact 50px Edge Gaps) */}
+                <line x1="180" y1="110" x2="180" y2="156" stroke="currentColor" strokeWidth="3" markerStart="url(#isp-arrow-start)" markerEnd="url(#isp-arrow-end)" className="text-amber-500 dark:text-amber-400" />
+                <line x1="100.3" y1="226.0" x2="140.2" y2="203.0" stroke="currentColor" strokeWidth="3" markerStart="url(#isp-arrow-start)" markerEnd="url(#isp-arrow-end)" className="text-amber-500 dark:text-amber-400" />
+                <line x1="259.7" y1="226.0" x2="219.8" y2="203.0" stroke="currentColor" strokeWidth="3" markerStart="url(#isp-arrow-start)" markerEnd="url(#isp-arrow-end)" className="text-amber-500 dark:text-amber-400" />
 
                 {/* Central NAP Node */}
                 <g transform="translate(180, 180)" className="group cursor-pointer">
@@ -181,26 +181,26 @@ export default function IspHierarchy({ values }: Props) {
                   <text x="0" y="14" textAnchor="middle" className="fill-amber-100 text-[8px] font-semibold">Peering Facility</text>
                 </g>
 
-                {/* Surrounding National ISPs */}
+                {/* Symmetrically Positioned Surrounding National ISPs */}
                 <g className="group cursor-pointer">
-                  <rect x="130" y="45" width="100" height="45" rx="8" className="fill-white dark:fill-slate-900 stroke-blue-500 dark:stroke-blue-400 stroke-[2px]" />
-                  <text x="180" y="68" textAnchor="middle" className="fill-slate-800 dark:fill-slate-200 text-[9px] font-bold">National ISP 1</text>
-                  <text x="180" y="80" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[7px]">Backbone A</text>
+                  <rect x="130" y="63" width="100" height="45" rx="8" className="fill-white dark:fill-slate-900 stroke-blue-500 dark:stroke-blue-400 stroke-[2px]" />
+                  <text x="180" y="86" textAnchor="middle" className="fill-slate-800 dark:fill-slate-200 text-[9px] font-bold">National ISP 1</text>
+                  <text x="180" y="98" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[7px]">Backbone A</text>
                 </g>
 
                 <g className="group cursor-pointer">
-                  <rect x="20" y="225" width="100" height="45" rx="8" className="fill-white dark:fill-slate-900 stroke-blue-500 dark:stroke-blue-400 stroke-[2px]" />
-                  <text x="70" y="248" textAnchor="middle" className="fill-slate-800 dark:fill-slate-200 text-[9px] font-bold">National ISP 2</text>
-                  <text x="70" y="260" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[7px]">Backbone B</text>
+                  <rect x="9.6" y="227" width="100" height="45" rx="8" className="fill-white dark:fill-slate-900 stroke-blue-500 dark:stroke-blue-400 stroke-[2px]" />
+                  <text x="59.6" y="250" textAnchor="middle" className="fill-slate-800 dark:fill-slate-200 text-[9px] font-bold">National ISP 2</text>
+                  <text x="59.6" y="262" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[7px]">Backbone B</text>
                 </g>
 
                 <g className="group cursor-pointer">
-                  <rect x="240" y="225" width="100" height="45" rx="8" className="fill-white dark:fill-slate-900 stroke-blue-500 dark:stroke-blue-400 stroke-[2px]" />
-                  <text x="290" y="248" textAnchor="middle" className="fill-slate-800 dark:fill-slate-200 text-[9px] font-bold">National ISP 3</text>
-                  <text x="290" y="260" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[7px]">Backbone C</text>
+                  <rect x="250.4" y="227" width="100" height="45" rx="8" className="fill-white dark:fill-slate-900 stroke-blue-500 dark:stroke-blue-400 stroke-[2px]" />
+                  <text x="300.4" y="250" textAnchor="middle" className="fill-slate-800 dark:fill-slate-200 text-[9px] font-bold">National ISP 3</text>
+                  <text x="300.4" y="262" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[7px]">Backbone C</text>
                 </g>
 
-                <text x="180" y="325" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]">Direct cross-connections exchange traffic freely</text>
+                <text x="180" y="315" textAnchor="middle" className="fill-slate-500 dark:fill-slate-400 text-[10px]">Direct cross-connections exchange traffic freely</text>
               </g>
             </g>
           )}

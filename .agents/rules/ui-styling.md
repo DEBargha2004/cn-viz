@@ -133,7 +133,7 @@ language).
 All `*.viz.tsx` interactive visualizations must adhere to the following visual design standard:
 
 1. **Large Full-Width Canvas**:
-   - The SVG canvas container must be full-width with generous vertical space (`w-full min-h-[380px] sm:min-h-[420px] rounded-2xl border bg-slate-100/80 dark:bg-slate-950/90 border-slate-200/80 dark:border-slate-800`).
+   - The SVG canvas container must be full-width with generous vertical space (`w-full min-h-[200px] sm:min-h-[360px] md:min-h-[420px] rounded-2xl border bg-slate-100/80 dark:bg-slate-950/90 border-slate-200/80 dark:border-slate-800 flex items-center justify-center p-2 sm:p-4`).
    - Use subtle ambient background grid patterns with theme-aware opacity (`radial-gradient(currentColor 1px, transparent 1px)`).
 
 2. **Canvas Overlays & HUD Controls**:
