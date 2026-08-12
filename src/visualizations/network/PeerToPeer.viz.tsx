@@ -174,36 +174,36 @@ const TRAJECTORY_STEPS: Step[] = [
   { id: 3, node: 'deviceA', layerNum: 4, x: X_CENTERS.deviceA, y: getLayerY(4) + 17, title: 'Device A — Transport Layer', desc: 'Appends source & destination port numbers (H4 header added).', pdu: 'Segment', action: 'encapsulate' },
   { id: 4, node: 'deviceA', layerNum: 3, x: X_CENTERS.deviceA, y: getLayerY(3) + 17, title: 'Device A — Network Layer', desc: 'Appends logical IP source & destination addresses (H3 header added).', pdu: 'Packet', action: 'encapsulate' },
   { id: 5, node: 'deviceA', layerNum: 2, x: X_CENTERS.deviceA, y: getLayerY(2) + 17, title: 'Device A — Data Link Layer', desc: 'Appends MAC header & CRC error trailer (H2/T2 added).', pdu: 'Frame', action: 'encapsulate' },
-  { id: 6, node: 'deviceA', layerNum: 1, x: X_CENTERS.deviceA, y: getLayerY(1) + 17, title: 'Device A — Physical Layer', desc: 'Converts digital frame into electrical/optical signals.', pdu: 'Bit Stream', action: 'transmit' },
+  { id: 6, node: 'deviceA', layerNum: 1, x: X_CENTERS.deviceA, y: getLayerY(1) + 17, title: 'Device A — Physical Layer', desc: 'Converts bit stream into electrical/optical signals for transmission.', pdu: 'Bit Stream', action: 'transmit' },
 
   // WIRE TRANSIT HOP 1 (STEPS 7-8)
-  { id: 7, node: 'link1', layerNum: 1, x: X_CENTERS.deviceA, y: PHYSICAL_CABLE_Y, title: 'Physical Egress (Device A)', desc: 'Signals drop down interface onto physical transmission cable.', pdu: 'Bit Stream', action: 'transmit' },
-  { id: 8, node: 'link1', layerNum: 1, x: X_CENTERS.router1, y: PHYSICAL_CABLE_Y, title: 'Physical Link 1 (Hop 1 Transit)', desc: 'Bits travel across physical cable to Intermediate Router 1.', pdu: 'Bit Stream', action: 'transmit' },
+  { id: 7, node: 'link1', layerNum: 1, x: X_CENTERS.deviceA, y: PHYSICAL_CABLE_Y, title: 'Physical Egress (Device A)', desc: 'Signals drop down interface onto physical transmission cable.', pdu: 'Signal', action: 'transmit' },
+  { id: 8, node: 'link1', layerNum: 1, x: X_CENTERS.router1, y: PHYSICAL_CABLE_Y, title: 'Physical Link 1 (Hop 1 Transit)', desc: 'Signals travel across physical cable to Intermediate Router 1.', pdu: 'Signal', action: 'transmit' },
 
   // ROUTER 1 PROCESSING (STEPS 9-13)
-  { id: 9, node: 'router1', layerNum: 1, x: X_CENTERS.router1, y: getLayerY(1) + 17, title: 'Router 1 — Physical Layer', desc: 'Ingress interface receives bits and reconstructs frame.', pdu: 'Bit Stream', action: 'decapsulate' },
+  { id: 9, node: 'router1', layerNum: 1, x: X_CENTERS.router1, y: getLayerY(1) + 17, title: 'Router 1 — Physical Layer', desc: 'Ingress interface receives signals and converts them into a bit stream.', pdu: 'Bit Stream', action: 'decapsulate' },
   { id: 10, node: 'router1', layerNum: 2, x: X_CENTERS.router1, y: getLayerY(2) + 17, title: 'Router 1 — Data Link Layer', desc: 'Validates frame CRC trailer and strips L2 MAC header.', pdu: 'Frame -> Packet', action: 'decapsulate' },
   { id: 11, node: 'router1', layerNum: 3, x: X_CENTERS.router1, y: getLayerY(3) + 17, title: 'Router 1 — Network Layer', desc: 'Inspects destination IP and looks up routing table for next hop.', pdu: 'Packet (Route Lookup)', action: 'route' },
   { id: 12, node: 'router1', layerNum: 2, x: X_CENTERS.router1, y: getLayerY(2) + 17, title: 'Router 1 — Data Link Layer', desc: 'Re-encapsulates packet into new outbound frame with Router 2 MAC.', pdu: 'Packet -> Frame', action: 'encapsulate' },
-  { id: 13, node: 'router1', layerNum: 1, x: X_CENTERS.router1, y: getLayerY(1) + 17, title: 'Router 1 — Physical Layer', desc: 'Egress interface converts frame into physical signals.', pdu: 'Bit Stream', action: 'transmit' },
+  { id: 13, node: 'router1', layerNum: 1, x: X_CENTERS.router1, y: getLayerY(1) + 17, title: 'Router 1 — Physical Layer', desc: 'Egress interface converts bit stream into physical signals.', pdu: 'Bit Stream', action: 'transmit' },
 
   // WIRE TRANSIT HOP 2 (STEPS 14-15)
-  { id: 14, node: 'link2', layerNum: 1, x: X_CENTERS.router1, y: PHYSICAL_CABLE_Y, title: 'Physical Egress (Router 1)', desc: 'Signals drop down interface onto intermediate physical cable.', pdu: 'Bit Stream', action: 'transmit' },
-  { id: 15, node: 'link2', layerNum: 1, x: X_CENTERS.router2, y: PHYSICAL_CABLE_Y, title: 'Physical Link 2 (Hop 2 Transit)', desc: 'Bits travel across physical cable to Intermediate Router 2.', pdu: 'Bit Stream', action: 'transmit' },
+  { id: 14, node: 'link2', layerNum: 1, x: X_CENTERS.router1, y: PHYSICAL_CABLE_Y, title: 'Physical Egress (Router 1)', desc: 'Signals drop down interface onto intermediate physical cable.', pdu: 'Signal', action: 'transmit' },
+  { id: 15, node: 'link2', layerNum: 1, x: X_CENTERS.router2, y: PHYSICAL_CABLE_Y, title: 'Physical Link 2 (Hop 2 Transit)', desc: 'Signals travel across physical cable to Intermediate Router 2.', pdu: 'Signal', action: 'transmit' },
 
   // ROUTER 2 PROCESSING (STEPS 16-20)
-  { id: 16, node: 'router2', layerNum: 1, x: X_CENTERS.router2, y: getLayerY(1) + 17, title: 'Router 2 — Physical Layer', desc: 'Ingress interface receives signals and builds binary frame.', pdu: 'Bit Stream', action: 'decapsulate' },
+  { id: 16, node: 'router2', layerNum: 1, x: X_CENTERS.router2, y: getLayerY(1) + 17, title: 'Router 2 — Physical Layer', desc: 'Ingress interface receives signals and converts them into a bit stream.', pdu: 'Bit Stream', action: 'decapsulate' },
   { id: 17, node: 'router2', layerNum: 2, x: X_CENTERS.router2, y: getLayerY(2) + 17, title: 'Router 2 — Data Link Layer', desc: 'Checks frame integrity and passes packet up to Network layer.', pdu: 'Frame -> Packet', action: 'decapsulate' },
   { id: 18, node: 'router2', layerNum: 3, x: X_CENTERS.router2, y: getLayerY(3) + 17, title: 'Router 2 — Network Layer', desc: 'Identifies Device B as target host on directly connected subnet.', pdu: 'Packet (Route Lookup)', action: 'route' },
   { id: 19, node: 'router2', layerNum: 2, x: X_CENTERS.router2, y: getLayerY(2) + 17, title: 'Router 2 — Data Link Layer', desc: 'Appends final Hop 3 MAC header and CRC trailer for Device B.', pdu: 'Packet -> Frame', action: 'encapsulate' },
-  { id: 20, node: 'router2', layerNum: 1, x: X_CENTERS.router2, y: getLayerY(1) + 17, title: 'Router 2 — Physical Layer', desc: 'Transmits bits over physical media to Device B.', pdu: 'Bit Stream', action: 'transmit' },
+  { id: 20, node: 'router2', layerNum: 1, x: X_CENTERS.router2, y: getLayerY(1) + 17, title: 'Router 2 — Physical Layer', desc: 'Converts bit stream into signals and transmits over physical media.', pdu: 'Bit Stream', action: 'transmit' },
 
   // WIRE TRANSIT HOP 3 (STEPS 21-22)
-  { id: 21, node: 'link3', layerNum: 1, x: X_CENTERS.router2, y: PHYSICAL_CABLE_Y, title: 'Physical Egress (Router 2)', desc: 'Signals drop down interface onto final physical cable.', pdu: 'Bit Stream', action: 'transmit' },
-  { id: 22, node: 'link3', layerNum: 1, x: X_CENTERS.deviceB, y: PHYSICAL_CABLE_Y, title: 'Physical Link 3 (Hop 3 Transit)', desc: 'Bits travel across physical cable to destination Device B.', pdu: 'Bit Stream', action: 'transmit' },
+  { id: 21, node: 'link3', layerNum: 1, x: X_CENTERS.router2, y: PHYSICAL_CABLE_Y, title: 'Physical Egress (Router 2)', desc: 'Signals drop down interface onto final physical cable.', pdu: 'Signal', action: 'transmit' },
+  { id: 22, node: 'link3', layerNum: 1, x: X_CENTERS.deviceB, y: PHYSICAL_CABLE_Y, title: 'Physical Link 3 (Hop 3 Transit)', desc: 'Signals travel across physical cable to destination Device B.', pdu: 'Signal', action: 'transmit' },
 
   // DEVICE B DECAPSULATION (STEPS 23-28)
-  { id: 23, node: 'deviceB', layerNum: 1, x: X_CENTERS.deviceB, y: getLayerY(1) + 17, title: 'Device B — Physical Layer', desc: 'Receives signals and passes frame to Data Link layer.', pdu: 'Bit Stream', action: 'decapsulate' },
+  { id: 23, node: 'deviceB', layerNum: 1, x: X_CENTERS.deviceB, y: getLayerY(1) + 17, title: 'Device B — Physical Layer', desc: 'Receives signals, converts to bit stream, and passes to Data Link layer.', pdu: 'Bit Stream', action: 'decapsulate' },
   { id: 24, node: 'deviceB', layerNum: 2, x: X_CENTERS.deviceB, y: getLayerY(2) + 17, title: 'Device B — Data Link Layer', desc: 'Validates frame CRC trailer and strips L2 MAC header.', pdu: 'Frame -> Packet', action: 'decapsulate' },
   { id: 25, node: 'deviceB', layerNum: 3, x: X_CENTERS.deviceB, y: getLayerY(3) + 17, title: 'Device B — Network Layer', desc: 'Verifies IP address matches host and strips L3 IP header.', pdu: 'Packet -> Segment', action: 'decapsulate' },
   { id: 26, node: 'deviceB', layerNum: 4, x: X_CENTERS.deviceB, y: getLayerY(4) + 17, title: 'Device B — Transport Layer', desc: 'Verifies port number, reassembles segment, and strips L4 header.', pdu: 'Segment -> Data', action: 'decapsulate' },

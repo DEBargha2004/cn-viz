@@ -243,7 +243,7 @@ export default function LayeredAnalogy({ values }: Props) {
   const textClass = 'fill-slate-900 dark:fill-slate-100 font-medium text-[12.5px] leading-[1.35] select-none';
 
   return (
-    <div className="flex flex-col space-y-4 p-4 sm:p-6 bg-card rounded-2xl border shadow-sm font-sans select-none">
+    <div className="flex flex-col w-full space-y-4 font-sans select-none">
       {/* PLAYBACK CONTROL HUD TOOLBAR */}
       <div className="bg-card border border-border rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-xs">
         <div className="flex items-center gap-2">

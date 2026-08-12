@@ -2,14 +2,10 @@ import { Suspense, useState } from "react";
 import { vizRegistry } from "../../visualizations/registry";
 import { useVizState } from "../../state/useVizState";
 import { ControlPanel } from "./ControlPanel";
+import { VisualizationHeader } from "./VisualizationHeader";
 import { type VizRef } from "../../lib/content";
 import { AlertCircle, Play, Pause } from "lucide-react";
 import { Button } from "../ui/button";
-
-interface VisualizationSectionProps {
-  topicId: string;
-  vizRef: VizRef;
-}
 
 export function UnknownVizFallback({ vizKey }: { vizKey: string }) {
   return (
@@ -39,6 +35,11 @@ export function VizSkeleton() {
   );
 }
 
+interface VisualizationSectionProps {
+  topicId: string;
+  vizRef: VizRef;
+}
+
 export function VisualizationSection({
   topicId,
   vizRef,
@@ -49,7 +50,9 @@ export function VisualizationSection({
     ? (Object.fromEntries(
         (entry.meta.params ?? []).map((p) => [
           p.key,
-          vizRef.paramOverrides?.[p.key] ?? p.default,
+          vizRef.paramOverrides?.[p.key] ??
+            (vizRef.props as Record<string, unknown>)?.[p.key] ??
+            p.default,
         ]),
       ) as Record<string, unknown>)
     : {};
@@ -66,40 +69,39 @@ export function VisualizationSection({
 
   return (
     <div className="rounded-lg border p-4 space-y-4 bg-muted/5 shadow-sm">
-      <div className="flex items-center justify-between border-b pb-2">
-        <span className="text-sm font-semibold tracking-wide text-muted-foreground/80">
-          {entry.meta.title}
-        </span>
-        <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/50 bg-muted px-1.5 py-0.5 rounded border border-border">
-          {entry.meta.renderer}
-        </span>
-      </div>
+      <VisualizationHeader
+        title={entry.meta.title}
+        renderer={entry.meta.renderer}
+        animated={entry.meta.animated}
+        category={entry.meta.category}
+        actions={
+          entry.meta.animated ? (
+            <Button
+              variant={isPlaying ? "outline" : "default"}
+              size="sm"
+              className="h-7 text-xs gap-1.5 shadow-2xs"
+              onClick={() => setIsPlaying((prev) => !prev)}
+            >
+              {isPlaying ? (
+                <Pause className="h-3.5 w-3.5" />
+              ) : (
+                <Play className="h-3.5 w-3.5" />
+              )}
+              {isPlaying ? "Pause" : "Play"}
+            </Button>
+          ) : undefined
+        }
+      />
       <div className="relative">
         <Suspense fallback={<VizSkeleton />}>
           <entry.component
             {...vizRef.props}
             values={values}
+            onChange={setValues}
             key={`${vizRef.vizKey}-${topicId}`}
             isPlaying={entry.meta.animated ? isPlaying : undefined}
           />
         </Suspense>
-        {entry.meta.animated && (
-          <div className="absolute top-4 right-4 z-10">
-            <Button
-              variant={isPlaying ? "outline" : "default"}
-              size="sm"
-              className="gap-2 shadow-md bg-background/95 hover:bg-accent hover:text-accent-foreground text-foreground border border-input backdrop-blur-sm"
-              onClick={() => setIsPlaying((prev) => !prev)}
-            >
-              {isPlaying ? (
-                <Pause className="h-4 w-4" />
-              ) : (
-                <Play className="h-4 w-4" />
-              )}
-              {isPlaying ? "Pause" : "Play"}
-            </Button>
-          </div>
-        )}
       </div>
       {hasControls ? (
         <div className="border-t pt-4">
@@ -113,3 +115,4 @@ export function VisualizationSection({
     </div>
   );
 }
+

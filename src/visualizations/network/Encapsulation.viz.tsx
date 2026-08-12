@@ -135,7 +135,7 @@ export default function Encapsulation({ values }: Props) {
       phase: "encapsulation",
       actionTitle: "7. Bitstream Encoding",
       actionDesc:
-        "Physical layer converts formatted frame into raw binary bits with synchronization preamble (010).",
+        "Physical layer converts formatted frame into raw binary bits with synchronization preamble.",
     },
 
     // --- TRANSMISSION MEDIUM PHASE (Step 7) ---
@@ -377,7 +377,7 @@ export default function Encapsulation({ values }: Props) {
     (activeStepInfo.phase === "decapsulation" && activeStepInfo.layerNum === 7);
 
   return (
-    <div className="flex flex-col space-y-4 p-4 sm:p-6 bg-card rounded-2xl border shadow-sm font-sans select-none">
+    <div className="flex flex-col w-full space-y-4 font-sans select-none">
       {/* PLAYBACK CONTROL HUD TOOLBAR */}
       <div className="bg-card border border-border rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-xs">
         <div className="flex items-center gap-2">
@@ -730,7 +730,7 @@ export default function Encapsulation({ values }: Props) {
                         textAnchor="middle"
                         className="fill-white font-mono font-extrabold text-[10px]"
                       >
-                        010
+                        PRE
                       </text>
 
                       {/* Raw Bitstream Box */}
@@ -748,7 +748,7 @@ export default function Encapsulation({ values }: Props) {
                         textAnchor="middle"
                         className={`${colors.text} font-mono font-bold text-[9.5px] tracking-wider`}
                       >
-                        010101010101101010000010000
+                        10101010 11010110 01001…
                       </text>
                     </g>
                   ) : (
@@ -1068,7 +1068,7 @@ export default function Encapsulation({ values }: Props) {
                         textAnchor="middle"
                         className="fill-white font-mono font-extrabold text-[10px]"
                       >
-                        010
+                        PRE
                       </text>
 
                       <rect
@@ -1085,7 +1085,7 @@ export default function Encapsulation({ values }: Props) {
                         textAnchor="middle"
                         className={`${colors.text} font-mono font-bold text-[9.5px] tracking-wider`}
                       >
-                        010101010101101010000010000
+                        10101010 11010110 01001…
                       </text>
                     </g>
                   ) : (
@@ -1259,8 +1259,8 @@ export default function Encapsulation({ values }: Props) {
                 <strong className="text-foreground">Framing & Preamble:</strong>{" "}
                 L2 adds FCS trailer (
                 <code className="text-slate-500 font-bold">T2</code>); L1
-                encodes the frame into raw bitstream with{" "}
-                <code className="text-amber-600 font-bold">010</code> preamble.
+                encodes the frame into raw bitstream with synchronization
+                preamble.
               </span>
             </li>
           </ul>

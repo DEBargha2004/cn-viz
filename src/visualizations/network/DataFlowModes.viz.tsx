@@ -199,7 +199,7 @@ export default function DataFlowModes({ values, isPlaying }: Props) {
   }, [mode]);
 
   return (
-    <div className="flex flex-col space-y-5 p-4 sm:p-6 bg-card rounded-2xl border shadow-sm">
+    <div className="flex flex-col w-full space-y-4 font-sans select-none">
       {/* LARGE RESPONSIVE SVG CANVAS CONTAINER */}
       <div className="w-full border rounded-2xl bg-slate-100/80 dark:bg-slate-950/90 relative overflow-hidden shadow-inner border-slate-200/80 dark:border-slate-800 min-h-[200px] sm:min-h-[360px] md:min-h-[420px] flex items-center justify-center p-2 sm:p-4 transition-colors duration-300">
         {/* Ambient Grid Background */}

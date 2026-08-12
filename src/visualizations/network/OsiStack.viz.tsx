@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useId } from "react";
 import { type VizMeta } from "../types";
 import {
   Globe,
@@ -140,7 +140,7 @@ const OSI_LAYERS: LayerItem[] = [
     },
     details: {
       addressing: "Data Syntax / Encoding Schemas",
-      protocols: ["SSL/TLS", "JPEG", "ASCII", "MIME", "JSON"],
+      protocols: ["SSL/TLS", "JPEG", "ASCII", "MIME", "ASN.1"],
       description:
         "Acts as data translator between application formats and machine-independent network syntax.",
       keyFunctions: [
@@ -246,7 +246,7 @@ const OSI_LAYERS: LayerItem[] = [
       description:
         "Routes packets across distinct networks from initial origin to final destination host.",
       keyFunctions: [
-        "Logical end-to-end host addressing",
+        "Logical source-to-destination host addressing",
         "Routing path selection across intermediate routers",
         "Packetizing and fragmentation handling",
       ],
@@ -276,7 +276,7 @@ const OSI_LAYERS: LayerItem[] = [
     },
     details: {
       addressing: "Physical MAC Address (48-bit)",
-      protocols: ["Ethernet (802.3)", "Wi-Fi (802.11)", "PPP", "ARP"],
+      protocols: ["Ethernet (802.3)", "Wi-Fi (802.11)", "PPP", "HDLC"],
       description:
         "Transforms a raw physical transmission channel into a reliable hop-to-hop link.",
       keyFunctions: [
@@ -310,7 +310,7 @@ const OSI_LAYERS: LayerItem[] = [
     },
     details: {
       addressing: "None (Electrical Signals / Optical Pulses)",
-      protocols: ["RS-232", "RJ-45", "100BASE-T", "Optical Fiber"],
+      protocols: ["RS-232", "100BASE-TX", "1000BASE-T", "SONET"],
       description:
         "Transmits raw individual bit streams over physical copper, glass fiber, or radio media.",
       keyFunctions: [
@@ -325,19 +325,26 @@ const OSI_LAYERS: LayerItem[] = [
 interface Props {
   props?: Record<string, unknown>;
   values: Record<string, unknown>;
+  onChange?: (values: Record<string, unknown>) => void;
 }
 
-export default function OsiStack({ values }: Props) {
+export default function OsiStack({ values, onChange }: Props) {
   const mode = (values.mode as "architecture" | "summary") || "architecture";
   const rawHighlightParam = (values.highlightLayer as string) || "none";
 
-  const [selectedLayerKey, setSelectedLayerKey] = useState<string | null>(
-    rawHighlightParam !== "none" ? rawHighlightParam : null,
-  );
-
   const activeHighlightKey =
-    selectedLayerKey ??
-    (rawHighlightParam !== "none" ? rawHighlightParam : null);
+    rawHighlightParam !== "none" ? rawHighlightParam : null;
+
+  const handleLayerClick = (layerKey: string) => {
+    const isSelected = activeHighlightKey === layerKey;
+    const nextHighlight = isSelected ? "none" : layerKey;
+    if (onChange) {
+      onChange({
+        ...values,
+        highlightLayer: nextHighlight,
+      });
+    }
+  };
 
   const activeLayer = OSI_LAYERS.find((l) => l.key === activeHighlightKey);
 
@@ -346,7 +353,7 @@ export default function OsiStack({ values }: Props) {
   const arrowMarkerId = `osi-arrow-${rawId.replace(/:/g, "")}`;
 
   return (
-    <div className="flex flex-col space-y-5 p-4 sm:p-6 bg-card rounded-2xl border shadow-sm">
+    <div className="flex flex-col w-full space-y-4 font-sans select-none">
       {/* SVG CANVAS CONTAINER */}
       <div className="w-full border rounded-2xl bg-slate-100/80 dark:bg-slate-950/90 relative overflow-hidden shadow-inner border-slate-200/80 dark:border-slate-800 min-h-[360px] md:min-h-[440px] flex items-center justify-center p-2 sm:p-4 transition-colors duration-300">
         {/* Ambient Subtle Grid */}
@@ -404,9 +411,7 @@ export default function OsiStack({ values }: Props) {
                   <g
                     key={layer.key}
                     className="cursor-pointer group"
-                    onClick={() =>
-                      setSelectedLayerKey(isSelected ? null : layer.key)
-                    }
+                    onClick={() => handleLayerClick(layer.key)}
                   >
                     {/* Layer Number Badge */}
                     <circle
@@ -680,9 +685,7 @@ export default function OsiStack({ values }: Props) {
                   <g
                     key={layer.key}
                     className="cursor-pointer group"
-                    onClick={() =>
-                      setSelectedLayerKey(isSelected ? null : layer.key)
-                    }
+                    onClick={() => handleLayerClick(layer.key)}
                   >
                     {/* Number Badge */}
                     <circle

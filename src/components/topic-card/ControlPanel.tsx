@@ -15,11 +15,7 @@ interface ControlPanelProps {
   onChange: (values: Record<string, unknown>) => void;
 }
 
-export function ControlPanel({
-  params,
-  values,
-  onChange,
-}: ControlPanelProps) {
+export function ControlPanel({ params, values, onChange }: ControlPanelProps) {
   const handleParamChange = (key: string, val: unknown) => {
     onChange({
       ...values,
@@ -28,17 +24,22 @@ export function ControlPanel({
   };
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2">
+    <div className="grid gap-3 sm:grid-cols-2 items-stretch">
       {params.map((param) => {
         const val = values[param.key] ?? param.default;
 
         return (
-          <div key={param.key} className="space-y-2">
+          <div
+            key={param.key}
+            className="flex flex-col justify-center border rounded-xl p-3 bg-muted/10 dark:bg-muted/20 hover:border-border/60 transition-colors min-h-[70px] shadow-2xs"
+          >
             {param.type === "number" && (
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm font-medium">
-                  <label className="text-muted-foreground">{param.label}</label>
-                  <span className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded border">
+              <div className="space-y-2 w-full">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <label className="text-muted-foreground uppercase tracking-wider">
+                    {param.label}
+                  </label>
+                  <span className="font-mono text-xs bg-background border px-1.5 py-0.5 rounded shadow-2xs">
                     {Number(val).toFixed(param.step && param.step < 1 ? 2 : 1)}
                   </span>
                 </div>
@@ -56,9 +57,9 @@ export function ControlPanel({
             )}
 
             {param.type === "boolean" && (
-              <div className="flex items-center justify-between border rounded-lg p-3 bg-muted/10">
+              <div className="flex items-center justify-between w-full h-full">
                 <label
-                  className="text-sm font-medium text-muted-foreground cursor-pointer"
+                  className="text-xs font-extrabold text-foreground cursor-pointer pr-2 select-none"
                   htmlFor={param.key}
                 >
                   {param.label}
@@ -74,8 +75,8 @@ export function ControlPanel({
             )}
 
             {param.type === "select" && (
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-muted-foreground">
+              <div className="space-y-1.5 w-full">
+                <label className="text-xs font-extrabold text-muted-foreground uppercase tracking-wider block">
                   {param.label}
                 </label>
                 <Select
@@ -85,7 +86,7 @@ export function ControlPanel({
                   }
                   items={param.options}
                 >
-                  <SelectTrigger className="w-full bg-background border shadow-sm">
+                  <SelectTrigger className="w-full h-9 bg-background border shadow-2xs text-xs font-medium">
                     <SelectValue placeholder={`Select ${param.label}`} />
                   </SelectTrigger>
                   <SelectContent alignItemWithTrigger={false}>
@@ -100,11 +101,11 @@ export function ControlPanel({
             )}
 
             {param.type === "color" && (
-              <div className="flex items-center gap-3 border rounded-lg p-3 bg-muted/10">
-                <label className="text-sm font-medium text-muted-foreground flex-1">
+              <div className="flex items-center justify-between w-full h-full">
+                <label className="text-xs font-extrabold text-muted-foreground uppercase tracking-wider">
                   {param.label}
                 </label>
-                <div className="relative w-8 h-8 rounded-full overflow-hidden border shadow-sm flex items-center justify-center">
+                <div className="relative w-8 h-8 rounded-full overflow-hidden border shadow-2xs flex items-center justify-center shrink-0">
                   <input
                     type="color"
                     value={val as string}

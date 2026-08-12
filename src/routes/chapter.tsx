@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
+import { useEffect } from "react";
 import { useLoaderData, type LoaderFunctionArgs } from "react-router-dom";
 import { loadChapter, type Chapter } from "../lib/content";
 import { ChapterStoreProvider } from "../state/chapterStore";
@@ -18,8 +18,12 @@ export function chapterLoader({ params }: LoaderFunctionArgs) {
 export default function ChapterPage() {
   const chapter = useLoaderData() as Chapter;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [chapter.id]);
+
   return (
-    <ChapterStoreProvider>
+    <ChapterStoreProvider key={chapter.id}>
       <div className="space-y-8 py-2">
         <div className="space-y-2 border-b pb-4">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
