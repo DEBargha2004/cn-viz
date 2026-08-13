@@ -1,0 +1,19 @@
+{
+  "id": "fiber-propagation-modes",
+  "title": "Propagation Modes in Optical Fiber",
+  "markdown": "The way light propagates through an optical fiber depends on the **core diameter** and the **refractive-index profile**. These factors determine how many paths (modes) a light ray can take.\n\n{{viz:0}}\n\n---\n\n### Multimode vs. Single Mode\n\n- **Multimode** — The core is wide enough for light to enter at many different angles, creating multiple propagation paths. Signal elements spread out in time (modal dispersion), which limits the achievable data rate and maximum distance.\n- **Single Mode** — The core radius is reduced to the order of a single wavelength of light, so only one mode propagates. This eliminates modal dispersion, enabling the highest data rates over the longest distances.\n\n---\n\n### Multimode Fiber Variants\n\n#### Step-Index Fiber\n\nThe refractive index of the core is **uniform** (constant density from center to edge). The abrupt change at the core/cladding boundary gives this type its name — \"step index.\" A beam of light bounces in a zig-zag pattern between the core and cladding walls. Because different ray paths have different lengths, signals arrive at the far end at slightly different times, causing **the most distortion** of the three modes.\n\n#### Graded-Index Fiber\n\nThe refractive index of the core **varies gradually** — highest at the center, decreasing toward the edges. This bends light rays in smooth curves rather than sharp bounces. Rays traveling near the edge move faster (lower refractive index) than those at the center, so all rays arrive more nearly in sync. Result: **significantly less distortion** than step-index fiber.\n\n{{viz:1}}",
+  "visualizations": [
+    {
+      "vizKey": "network-classification-tree",
+      "stateScope": "local",
+      "props": { "tree": "fiber-modes" },
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-fiber-propagation-waveforms",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": { "mode": "all" }
+    }
+  ]
+}

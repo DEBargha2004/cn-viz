@@ -1,0 +1,13 @@
+{
+  "id": "transmission-media-intro",
+  "title": "Transmission Media",
+  "markdown": "A **transmission medium** is anything that can carry information from a source to a destination. It is the physical path between a sender and a receiver in a data-communication system.\n\nThe transmission medium lies beneath the **Physical Layer** of the OSI model and is directly controlled by it — including the type of signal, the bit encoding, and the transmission rate.\n\n{{viz:0}}\n\n### Classification\n\nTransmission media fall into two broad categories:\n\n- **Guided (Wired) Media** — Signals are directed along a physical conductor such as a cable. Examples include twisted-pair cable, coaxial cable, and fiber-optic cable.\n- **Unguided (Wireless) Media** — Signals propagate through free space without a physical conductor. Examples include radio waves, microwaves, and infrared.",
+  "visualizations": [
+    {
+      "vizKey": "network-classification-tree",
+      "stateScope": "local",
+      "props": { "tree": "transmission-media" },
+      "paramOverrides": {}
+    }
+  ]
+}

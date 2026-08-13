@@ -1,0 +1,19 @@
+{
+  "id": "wireless-transmission-types",
+  "title": "Radio Waves, Microwaves & Infrared",
+  "markdown": "Wireless transmission uses three main types of electromagnetic waves, each suited to different communication needs.\n\n{{viz:0}}\n\n---\n\n### Radio Waves\n\n- **Frequency Range**: 3 kHz to 1 GHz\n- **Antenna Type**: Omnidirectional — radiates signals in all directions.\n- **Communication Mode**: Multicast (one transmitter, many receivers).\n- **Applications**: AM/FM radio, television broadcasting, marine radio, cordless phones, and paging systems.\n\n{{viz:1}}\n\n---\n\n### Microwaves\n\n- **Frequency Range**: 1 GHz to 300 GHz\n- **Antenna Type**: Unidirectional — sends a focused beam in a single direction (parabolic dish or horn antenna).\n- **Communication Mode**: Unicast (point-to-point).\n- **Applications**: Cellular telephones, satellite networks, wireless LANs, and microwave tower links.\n\n---\n\n### Infrared\n\n- **Frequency Range**: 300 GHz to 400 THz\n- **Propagation**: Line-of-sight only; cannot penetrate walls.\n- **Communication Mode**: Short-range, point-to-point within a closed area.\n- **Applications**: Television remote controls, IrDA data transfer, and some indoor wireless links.",
+  "visualizations": [
+    {
+      "vizKey": "network-classification-tree",
+      "stateScope": "local",
+      "props": { "tree": "wireless-types" },
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-antenna-diagram",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": { "antennaType": "omnidirectional" }
+    }
+  ]
+}

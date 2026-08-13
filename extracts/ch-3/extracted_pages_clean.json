@@ -1,0 +1,86 @@
+[
+  {
+    "page": 1,
+    "text": "                  Transmission Media\n\n                         Lecture 03\n\n                         Dr. Alak Roy\n                      Assistant Professor\n              Department of Information Technology\n                    Tripura University, India\n                Email: alakroy@tripurauniv.ac.in\n                   Website: www.alakroy.in\n\nMcGraw-Hill                                 \u00a9The McGraw-Hill Companies, Inc., 2000"
+  },
+  {
+    "page": 2,
+    "text": "             Transmission Media\n      Anything that can carry information from source to\n      its destination.\n\n              Figure 7.1 Transmission medium and physical layer"
+  },
+  {
+    "page": 3,
+    "text": "  Figure 7.2 Classes of transmission media"
+  },
+  {
+    "page": 4,
+    "text": " 7-1 GUIDED MEDIA\n\n Guided media, which are those that provide a conduit\n from one device to another, include twisted-pair cable,\n coaxial cable, and fiber-optic cable.\n      1. Twisted-Pair Cable\n      2. Coaxial Cable\n      3. Fiber-Optic Cable"
+  },
+  {
+    "page": 5,
+    "text": "  Twisted-Pair Cable\n\n  1) Least expensive, most widely used.\n\n  2) Consists of two insulated copper wires arranged in a regular spiral pattern.\n\n  3) Twisting tends to decrease crosstalk, interference between adjacent pairs in a cable.\n\n  4) Tighter twisting provides much better performance but also increases cost.\n\n  5) Separately insulated, twisted together.\n\n  6) Often bundled into cables.\n\n  Uses: I) Telephone lines. II) Usually installed in building daisy-chain construction."
+  },
+  {
+    "page": 6,
+    "text": "  Twisted-Pair Cable\n      Twisted pair is categorized into two types:\n\n      i)   Shielded Twisted-Pair (STP): STP has a metal foil or braided mesh covering that encases\n           each pair of insulated conductors.\n      ii)  Unshielded Twisted-Pair (UTP).\n\n                              Figure 7.4 UTP and STP cables"
+  },
+  {
+    "page": 7,
+    "text": "  Figure 7.5 UTP connector"
+  },
+  {
+    "page": 8,
+    "text": "      Coaxial Cable\n      i)     Coaxial cable (or coax) carries signals of higher frequency ranges.\n\n      ii)    Consists of a hollow outer cylindrical conductor covered by a shield.\n\n      iii)   Inner conductor is a solid metal, separated by insulating material; the whole cable is\n             covered by a plastic cover.\n\n      iv)    Due to its shielding, coaxial cables are much less susceptible to interference or\n             crosstalk than twisted pair.\n\n      Uses: LAN, television distribution, long-distance telephone cable.\n\n                                       Figure 7.7 Coaxial cable"
+  },
+  {
+    "page": 9,
+    "text": "  Optical Fiber\n\n  The core consists of:\n\n  1) Thin strands of fibers made of glass or plastic.\n\n  2) The cladding is a glass or plastic coating that has optical properties different from those\n     of the core.\n\n  3) Thin, flexible medium, capable of guiding an optical ray.\n\n  4) Made of ultra-pure fused silica, glass fiber, or even plastic.\n\n  5) Small size and light weight.\n\n  6) It has a cylindrical shape consisting of three concentric sections: core, cladding, and jacket\n     (laser/LED is used as the light source).\n\n  7) Uses: LAN, long-distance telecommunication."
+  },
+  {
+    "page": 10,
+    "text": "  Figure 7.11 Optical fiber\n\n                              Figure 7.14 Fiber construction"
+  },
+  {
+    "page": 11,
+    "text": "  Figure 7.10 Bending of light ray"
+  },
+  {
+    "page": 12,
+    "text": "  Optical Fiber\n\n  Advantages of Optical Fiber:\n\n  1) Higher bandwidth.\n\n  2) Less signal attenuation.\n\n  3) Immunity to electromagnetic interference.\n\n  4) Resistance to corrosive materials.\n\n  Disadvantages of Optical Fiber:\n\n  1) Installation and maintenance.\n\n  2) Unidirectional light propagation.\n\n  3) Cost."
+  },
+  {
+    "page": 13,
+    "text": " Propagation Modes in Optical Fiber\n\nMultimode: Refers to the variety of angles that will reflect. Multiple propagation\npaths exist. Signal elements spread out in time and hence limit the data rate.\nSingle Mode: When the fiber core is reduced, fewer angles will reflect. By reducing the\nradius of the core to the order of a wavelength, only a single angle (mode) can pass."
+  },
+  {
+    "page": 14,
+    "text": " Propagation Modes in Optical Fiber\n\nMultimode Step Index: The density of the core remains constant from center to edge. Step\nindex refers to the suddenness of the change, which contributes to the distortion of the signal as it\npasses through the fiber.\n\nIn multimode step-index fiber, a beam of light moves through the constant-density core in a straight line\nuntil it reaches the interface of the core and the cladding.\n\nMultimode Graded Index:\n\n1) Decreases distortion of the signal through the cable.\n\n2) The density varies; it is highest at the center of the core and decreases gradually to its\n   lowest at the edges.\n\n3) By varying the refractive index of the core, rays may be focused more efficiently than in\n   multimode step-index fiber."
+  },
+  {
+    "page": 15,
+    "text": "  Propagation Modes in Optical Fiber"
+  },
+  {
+    "page": 16,
+    "text": " 7-2 UNGUIDED MEDIA: WIRELESS\n\n   1. Unguided media transport electromagnetic waves without\n      using a physical conductor.\n   2. This type of communication is often referred to as wireless\n      communication.\n   3. Transmission and reception are by means of antennas.\n      Carefully aligned antennas allow point-to-point\n      communication."
+  },
+  {
+    "page": 17,
+    "text": "  Figure 7.17 Electromagnetic spectrum for wireless communication"
+  },
+  {
+    "page": 18,
+    "text": "  Figure 7.18 Propagation methods"
+  },
+  {
+    "page": 19,
+    "text": "       Table 7.4 Bands"
+  },
+  {
+    "page": 20,
+    "text": " Wireless Transmission Waves\n\nRadio waves:\n1) 3 kHz to 1 GHz.\n2) Use omnidirectional (all-directional)\n   antennas.\n3) Used for multicast communications, such\n   as AM/FM radio, television, marine\n   radio, cordless phones, and paging\n   systems.\n\n                                      Figure 7.20 Omnidirectional antenna"
+  },
+  {
+    "page": 21,
+    "text": "Wireless Transmission Waves\nMicrowaves:\n  1) 1 GHz to 300 GHz.\n  2) Use unidirectional (sends signal in one direction only) antennas.\n  3) Used for unicast communication such as cellular telephones, satellite\n     networks, and wireless LANs.\nInfrared signals:\n   1) 300 GHz to 400 THz.\n   2) Used for short-range communication in a closed area using line-of-\n      sight propagation.\n\n                                            Figure: Unidirectional antennas"
+  }
+]

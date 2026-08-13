@@ -1,0 +1,6 @@
+{
+  "id": "guided-media-overview",
+  "title": "Guided Media",
+  "markdown": "**Guided media** (also called *wired* or *bounded* media) provide a physical conduit from one device to another. The signal is directed and contained within the conductor.\n\n### Types of Guided Media\n\nThree main cable types are used in networking:\n\n1. **Twisted-Pair Cable** — Two insulated copper wires twisted together. The most common and least expensive guided medium.\n2. **Coaxial Cable** — A central conductor surrounded by a shield, capable of carrying higher-frequency signals than twisted pair.\n3. **Fiber-Optic Cable** — Uses light pulses through a glass or plastic core, offering the highest bandwidth and longest range of the three.",
+  "visualizations": []
+}

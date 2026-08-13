@@ -1,0 +1,13 @@
+{
+  "id": "coaxial-cable",
+  "title": "Coaxial Cable",
+  "markdown": "**Coaxial cable** (or *coax*) carries signals of higher frequency ranges than twisted pair and offers superior shielding.\n\n### Construction\n\nA coaxial cable consists of concentric layers:\n\n1. **Inner Conductor** — A solid metal wire at the center that carries the signal.\n2. **Insulator** — A dielectric layer separating the inner conductor from the shield.\n3. **Outer Conductor (Shield)** — A metallic mesh or foil that acts as both a return path and an electromagnetic shield.\n4. **Plastic Cover** — An outer jacket providing physical protection.\n\n{{viz:0}}\n\n### Advantages\n\n- **Reduced Interference** — Due to its concentric shielding, coaxial cable is much less susceptible to interference and crosstalk than twisted pair.\n- **Higher Bandwidth** — Supports higher frequency signals, suitable for broadband applications.\n\n### Common Uses\n\n- Cable television distribution\n- Local Area Networks (legacy 10BASE2 / 10BASE5 Ethernet)\n- Long-distance telephone trunks",
+  "visualizations": [
+    {
+      "vizKey": "network-cable-cutaway",
+      "stateScope": "local",
+      "props": { "cableType": "coax" },
+      "paramOverrides": {}
+    }
+  ]
+}

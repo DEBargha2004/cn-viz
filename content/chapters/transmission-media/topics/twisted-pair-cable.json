@@ -1,0 +1,19 @@
+{
+  "id": "twisted-pair-cable",
+  "title": "Twisted-Pair Cable",
+  "markdown": "**Twisted-pair cable** is the least expensive and most widely used guided medium. It consists of two insulated copper wires arranged in a regular spiral pattern.\n\n### Key Characteristics\n\n- **Crosstalk Reduction** — The twisting tends to decrease crosstalk (interference caused by adjacent wire pairs in the same cable).\n- **Performance vs. Cost** — Tighter twisting provides better performance but increases manufacturing cost.\n- **Construction** — Individual wires are separately insulated, then twisted together in pairs. Multiple pairs are often bundled into a single cable.\n- **Common Uses** — Telephone lines, LAN wiring (Ethernet), and building infrastructure.\n\n---\n\n### UTP vs. STP\n\nTwisted-pair cable is categorized into two types:\n\n- **Unshielded Twisted-Pair (UTP)** — The most common variety. No additional shielding beyond the plastic jacket. Used in most Ethernet installations (Cat 5e, Cat 6, Cat 6a).\n- **Shielded Twisted-Pair (STP)** — Each pair (or the entire bundle) is enclosed in a metal foil or braided mesh shield, providing extra protection against electromagnetic interference.\n\n{{viz:0}}\n\n---\n\n### UTP Connector (RJ-45)\n\nUTP cables use the **RJ-45** connector — an 8-pin modular jack that provides a reliable, standardized termination for Ethernet cabling.\n\n{{viz:1}}",
+  "visualizations": [
+    {
+      "vizKey": "network-cable-cutaway",
+      "stateScope": "local",
+      "props": { "cableType": "utp-stp" },
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-rj45-connector",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

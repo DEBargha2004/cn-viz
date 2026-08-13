@@ -1,0 +1,19 @@
+{
+  "id": "transmission-media",
+  "title": "Transmission Media",
+  "order": 3,
+  "topicOrder": [
+    "transmission-media-intro",
+    "guided-media-overview",
+    "twisted-pair-cable",
+    "coaxial-cable",
+    "optical-fiber-basics",
+    "fiber-critical-angle",
+    "optical-fiber-pros-cons",
+    "fiber-propagation-modes",
+    "unguided-media-overview",
+    "electromagnetic-spectrum",
+    "wave-propagation-bands",
+    "wireless-transmission-types"
+  ]
+}

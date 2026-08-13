@@ -1,0 +1,6 @@
+{
+  "id": "optical-fiber-pros-cons",
+  "title": "Optical Fiber: Advantages & Disadvantages",
+  "markdown": "Optical fiber offers several compelling advantages over metallic conductors, but it also comes with trade-offs.\n\n### Advantages\n\n- **Higher Bandwidth** — Fiber supports data rates in the gigabit-per-second range and beyond, far exceeding copper.\n- **Less Signal Attenuation** — Light signals degrade much more slowly over distance, allowing longer cable runs without repeaters.\n- **Immunity to Electromagnetic Interference (EMI)** — Because it transmits light rather than electrical signals, fiber is unaffected by nearby electrical sources, motors, or radio frequencies.\n- **Resistance to Corrosive Materials** — Glass is more resistant to corrosive chemicals than copper, making fiber suitable for harsh environments.\n\n---\n\n### Disadvantages\n\n- **Installation & Maintenance** — Fiber requires specialized tools and trained technicians for splicing and termination.\n- **Unidirectional Propagation** — Light travels in only one direction through a fiber, so two fibers (or two wavelengths via wavelength-division multiplexing) are needed for full-duplex communication.\n- **Cost** — Although fiber prices have fallen, the connectors, splicing equipment, and installation labor remain more expensive than copper for short runs.",
+  "visualizations": []
+}

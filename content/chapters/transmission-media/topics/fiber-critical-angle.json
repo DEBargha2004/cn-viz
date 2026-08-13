@@ -1,0 +1,13 @@
+{
+  "id": "fiber-critical-angle",
+  "title": "Bending of Light: The Critical Angle",
+  "markdown": "Light traveling from a denser medium into a less dense medium bends (refracts) at the boundary. The **critical angle** determines whether the light escapes or reflects back.\n\n{{viz:0}}\n\n### Three Cases\n\n1. **Angle of Incidence < Critical Angle** — The light ray crosses the boundary and refracts into the less dense medium, bending away from the normal.\n2. **Angle of Incidence = Critical Angle** — The refracted ray travels exactly along the boundary between the two media.\n3. **Angle of Incidence > Critical Angle** — **Total internal reflection** occurs: the light does not cross the boundary and instead reflects back into the denser medium.\n\n> **Why it matters for fiber optics**: Optical fiber is designed so that light entering the core always hits the core/cladding boundary at an angle *greater* than the critical angle, ensuring total internal reflection and keeping the light trapped inside the core as it travels the length of the cable.",
+  "visualizations": [
+    {
+      "vizKey": "network-critical-angle",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": { "angleCase": "all" }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "electromagnetic-spectrum",
+  "title": "Electromagnetic Spectrum for Wireless Communication",
+  "markdown": "Wireless communication uses a portion of the **electromagnetic (EM) spectrum** — the full range of frequencies at which electromagnetic energy can propagate.\n\n{{viz:0}}\n\n### Bands Used for Networking\n\nThe wireless spectrum relevant to data communication is divided into three major regions:\n\n| Region | Frequency Range | Characteristics |\n|---|---|---|\n| **Radio waves & Microwaves** | 3 kHz – 300 GHz | The widest usable band. Covers everything from AM radio to satellite links and cellular networks. |\n| **Infrared** | 300 GHz – 400 THz | Short-range, line-of-sight. Used by remote controls, IrDA ports, and some indoor wireless links. |\n| **Visible light** | 400 THz – 900 THz | A very narrow band. Emerging technologies (Li-Fi) use it for high-speed indoor communication. |\n\n> **Note**: Higher frequencies generally provide more bandwidth (higher data rates) but suffer from shorter range and greater atmospheric absorption.",
+  "visualizations": [
+    {
+      "vizKey": "network-em-spectrum",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

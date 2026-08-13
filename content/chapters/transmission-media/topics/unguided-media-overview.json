@@ -1,0 +1,6 @@
+{
+  "id": "unguided-media-overview",
+  "title": "Unguided Media: Wireless",
+  "markdown": "**Unguided media** transport electromagnetic waves through free space without using a physical conductor. This type of communication is commonly referred to as **wireless communication**.\n\n### How It Works\n\n- Transmission and reception are performed by **antennas**.\n- A transmitting antenna radiates electromagnetic energy into the surrounding medium (air or vacuum).\n- A receiving antenna picks up the signal from the environment.\n- **Carefully aligned antennas** can focus signals for point-to-point links (e.g., microwave towers), while **omnidirectional antennas** broadcast in all directions (e.g., radio stations).\n\n### Applications\n\nWireless transmission covers a wide range of use cases, from short-range infrared remote controls to global satellite communication networks.",
+  "visualizations": []
+}

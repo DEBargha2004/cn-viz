@@ -1,0 +1,19 @@
+{
+  "id": "wave-propagation-bands",
+  "title": "Propagation Methods & Frequency Bands",
+  "markdown": "Electromagnetic waves travel from a transmitter to a receiver using one of three propagation methods, depending on the frequency band.\n\n{{viz:0}}\n\n---\n\n### Propagation Methods\n\n- **Ground Propagation** (below 2 MHz) — Waves follow the curvature of the Earth's surface. Used for long-range navigation and AM radio.\n- **Sky Propagation** (2–30 MHz) — Waves are reflected off the ionosphere back to Earth, enabling long-distance communication beyond the horizon. Used for shortwave radio, CB radio, and maritime communication.\n- **Line-of-Sight Propagation** (above 30 MHz) — Waves travel in a straight line from transmitter to receiver. Both antennas must be in direct view of each other. Used for FM radio, TV, cellular, satellite, and microwave links.\n\n---\n\n### Frequency Bands\n\nThe ITU divides the radio spectrum into eight named bands, each with characteristic propagation behavior and typical applications:\n\n| Band | Range | Propagation | Application |\n|---|---|---|---|\n| VLF (very low frequency) | 3–30 kHz | Ground | Long-range radio navigation |\n| LF (low frequency) | 30–300 kHz | Ground | Radio beacons and navigational locators |\n| MF (medium frequency) | 300 kHz–3 MHz | Sky | AM radio |\n| HF (high frequency) | 3–30 MHz | Sky | Citizens band (CB), ship/aircraft communication |\n| VHF (very high frequency) | 30–300 MHz | Sky and line-of-sight | VHF TV, FM radio |\n| UHF (ultrahigh frequency) | 300 MHz–3 GHz | Line-of-sight | UHF TV, cellular phones, paging, satellite |\n| SHF (superhigh frequency) | 3–30 GHz | Line-of-sight | Satellite communication |\n| EHF (extremely high frequency) | 30–300 GHz | Line-of-sight | Radar, satellite |\n\n{{viz:1}}",
+  "visualizations": [
+    {
+      "vizKey": "network-wave-propagation-methods",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-frequency-bands",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": { "highlightBand": "none" }
+    }
+  ]
+}

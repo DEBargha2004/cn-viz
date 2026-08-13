@@ -1,0 +1,19 @@
+{
+  "id": "optical-fiber-basics",
+  "title": "Optical Fiber",
+  "markdown": "An **optical fiber** is a thin, flexible medium capable of guiding an optical ray. It uses light (from a laser or LED) rather than electrical signals to transmit data.\n\n### Construction\n\nAn optical fiber has a cylindrical shape consisting of three concentric sections:\n\n1. **Core** — The innermost section, made of ultra-pure fused silica, glass, or plastic. Light travels through the core.\n2. **Cladding** — A glass or plastic coating surrounding the core with a different refractive index, causing light to reflect back into the core (total internal reflection).\n3. **Jacket** — An outer protective layer.\n\n{{viz:0}}\n\n{{viz:1}}\n\n### Key Properties\n\n- **Small Size & Light Weight** — Much thinner and lighter than copper cables of equivalent capacity.\n- **High Bandwidth** — Supports data rates far exceeding those of metallic conductors.\n- **Long Distance** — Signals travel much farther before requiring amplification.\n\n### Common Uses\n\n- Local Area Networks (fiber backbone)\n- Long-distance telecommunications\n- Undersea cables",
+  "visualizations": [
+    {
+      "vizKey": "network-fiber-light-path",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-cable-cutaway",
+      "stateScope": "local",
+      "props": { "cableType": "fiber" },
+      "paramOverrides": {}
+    }
+  ]
+}
