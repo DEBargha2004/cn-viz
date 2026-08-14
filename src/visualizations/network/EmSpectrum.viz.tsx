@@ -175,6 +175,26 @@ export default function EmSpectrum({
   const visibleRainbowGradId = `visible-rainbow-grad-${rawId.replace(/:/g, "")}`;
   const barClipId = `bar-clip-flat-${rawId.replace(/:/g, "")}`;
 
+  // Bidirectional Band Focus Sync: Automatically shift frequency log to band midpoint when Band Focus dropdown changes
+  const targetBand = BANDS.find((b) => b.id === highlightBand);
+
+  useEffect(() => {
+    if (
+      highlightBand !== "none" &&
+      targetBand &&
+      (freqLog < targetBand.logMin || freqLog > targetBand.logMax)
+    ) {
+      const midLog = Number(
+        ((targetBand.logMin + targetBand.logMax) / 2).toFixed(2),
+      );
+      onChange?.({
+        ...values,
+        freqLog: midLog,
+        highlightBand: targetBand.id,
+      });
+    }
+  }, [highlightBand]);
+
   // Derived Physical Parameters
   const frequencyHz = Math.pow(10, freqLog);
   const SPEED_OF_LIGHT = 3e8; // m/s
@@ -185,8 +205,7 @@ export default function EmSpectrum({
 
   // Determine current active band strictly from freqLog bounds
   const currentBand =
-    BANDS.find((b) => freqLog >= b.logMin && freqLog < b.logMax) ||
-    (freqLog >= 14.897 ? BANDS[4] : BANDS[0]);
+    BANDS.find((b) => freqLog >= b.logMin && freqLog <= b.logMax) || BANDS[4];
 
   // Format Helper Functions
   const formatFrequency = (f: number) => {
@@ -229,8 +248,7 @@ export default function EmSpectrum({
   // Dynamic Frequency Slider Handler (syncs highlightBand dynamically when sweeping!)
   const handleSliderChange = (logVal: number) => {
     const newBand =
-      BANDS.find((b) => logVal >= b.logMin && logVal < b.logMax) ||
-      (logVal >= 14.897 ? BANDS[4] : BANDS[0]);
+      BANDS.find((b) => logVal >= b.logMin && logVal <= b.logMax) || BANDS[4];
 
     onChange?.({
       ...values,
@@ -470,7 +488,7 @@ export default function EmSpectrum({
                 opacity="0.7"
               />
               <text
-                x={spatialWavelengthPx / 2}
+                x={Math.max(55, spatialWavelengthPx / 2)}
                 y="-6"
                 textAnchor="middle"
                 fontSize="9"
@@ -510,33 +528,37 @@ export default function EmSpectrum({
             </text>
 
             {/* Pointer Tooltip Badge placed at y=52 (32px gap below header text, ZERO OVERLAP EVER!) */}
-            <g
-              transform={`translate(${20 + Math.max(45, Math.min(755, pointerX))}, 52)`}
-            >
-              <rect
-                x="-42"
-                y="-16"
-                width="84"
-                height="20"
-                rx="4"
-                className="fill-slate-900 dark:fill-slate-100 shadow-md"
-              />
-              <text
-                x="0"
-                y="-3"
-                textAnchor="middle"
-                fontSize="9"
-                fontWeight="extrabold"
-                className="fill-slate-100 dark:fill-slate-900 font-mono"
-              >
-                {formatFrequency(frequencyHz)}
-              </text>
-              {/* Downward Pointer Arrow */}
-              <polygon
-                points="0,7 -6,1 6,1"
-                className="fill-slate-900 dark:fill-slate-100"
-              />
-            </g>
+            {(() => {
+              const clampedX = Math.max(45, Math.min(755, pointerX));
+              const arrowOffset = pointerX - clampedX;
+              return (
+                <g transform={`translate(${20 + clampedX}, 52)`}>
+                  <rect
+                    x="-42"
+                    y="-16"
+                    width="84"
+                    height="20"
+                    rx="4"
+                    className="fill-slate-900 dark:fill-slate-100 shadow-md"
+                  />
+                  <text
+                    x="0"
+                    y="-3"
+                    textAnchor="middle"
+                    fontSize="9"
+                    fontWeight="extrabold"
+                    className="fill-slate-100 dark:fill-slate-900 font-mono"
+                  >
+                    {formatFrequency(frequencyHz)}
+                  </text>
+                  {/* Downward Pointer Arrow matching exact white line pointerX */}
+                  <polygon
+                    points={`${arrowOffset},7 ${arrowOffset - 6},1 ${arrowOffset + 6},1`}
+                    className="fill-slate-900 dark:fill-slate-100"
+                  />
+                </g>
+              );
+            })()}
 
             {/* CONTINUOUS SPECTRUM BAR TRACK (y = 95, height = 40px, ZERO OUTER BORDER, ZERO INTERNAL SEPARATION) */}
             <g transform="translate(20, 95)">
@@ -887,7 +909,7 @@ export default function EmSpectrum({
 // HELPER HOOK: SMOOTH WAVE ANIMATION STATE
 // ============================================================================
 function useWaveAnimation(activePlaying: boolean, globalSpeed: number) {
-  const [progress, setProgress] = useState(0);
+  const [time, setTime] = useState(0);
   const requestRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -900,7 +922,7 @@ function useWaveAnimation(activePlaying: boolean, globalSpeed: number) {
     const animate = (now: number) => {
       const delta = (now - lastTime) / 1000;
       lastTime = now;
-      setProgress((prev) => (prev + delta * 0.5 * globalSpeed) % 1.0);
+      setTime((prev) => prev + delta * globalSpeed);
       requestRef.current = requestAnimationFrame(animate);
     };
 
@@ -910,7 +932,7 @@ function useWaveAnimation(activePlaying: boolean, globalSpeed: number) {
     };
   }, [activePlaying, globalSpeed]);
 
-  return progress;
+  return time;
 }
 
 // ============================================================================
@@ -920,16 +942,13 @@ function getWaveY(
   x: number,
   centerY: number,
   wavelengthPx: number,
-  progress: number,
+  timeSec: number,
 ): number {
   const amplitude = 32;
 
-  // Calculate integer number of full periods for 1 progress loop
-  const numPeriodsInLoop = Math.max(1, Math.round(300 / wavelengthPx));
-  const loopTravelDistPx = numPeriodsInLoop * wavelengthPx;
-
-  // Exact Phase: At progress=1.0, travelDist = integer * lambda, so phase shifts by 2pi * integer (ZERO NET CHANGE!)
-  const travelDistPx = progress * loopTravelDistPx;
+  // Constant propagation speed (c = 120 px/s): waves travel at identical spatial speed across ALL frequencies
+  const speedPxPerSec = 120;
+  const travelDistPx = timeSec * speedPxPerSec;
   const phase = ((x - travelDistPx) / wavelengthPx) * Math.PI * 2;
   return centerY - Math.sin(phase) * amplitude;
 }
@@ -938,17 +957,20 @@ function generateWavePath(
   width: number,
   centerY: number,
   wavelengthPx: number,
-  progress: number,
+  timeSec: number,
 ): string {
   const points: string[] = [];
   const startX = 20;
+  // Dynamic sampling step: guarantees at least 24 points per wave period so high-frequency sine waves remain smooth curves without polygonal aliasing
+  const step = Math.max(0.5, Math.min(1.5, wavelengthPx / 24));
 
-  for (let x = 0; x <= width; x += 3) {
-    const y = getWaveY(x, centerY, wavelengthPx, progress);
+  for (let x = 0; x <= width; x += step) {
+    const y = getWaveY(x, centerY, wavelengthPx, timeSec);
+    const px = startX + x;
     if (x === 0) {
-      points.push(`M ${startX + x} ${y.toFixed(1)}`);
+      points.push(`M ${px.toFixed(1)} ${y.toFixed(1)}`);
     } else {
-      points.push(`L ${startX + x} ${y.toFixed(1)}`);
+      points.push(`L ${px.toFixed(1)} ${y.toFixed(1)}`);
     }
   }
 
