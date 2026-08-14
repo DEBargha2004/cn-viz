@@ -1,6 +1,7 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef } from "react";
 import { vizRegistry } from "../../visualizations/registry";
 import { useVizState } from "../../state/useVizState";
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 import { ControlPanel } from "./ControlPanel";
 import { VisualizationHeader } from "./VisualizationHeader";
 import { type VizRef } from "../../lib/content";
@@ -44,6 +45,9 @@ export function VisualizationSection({
   topicId,
   vizRef,
 }: VisualizationSectionProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisible = useIntersectionObserver(containerRef);
+
   const entry = vizRegistry[vizRef.vizKey];
 
   const defaults = entry
@@ -68,7 +72,7 @@ export function VisualizationSection({
     (entry.meta.params && entry.meta.params.length > 0) || entry.meta.animated;
 
   return (
-    <div className="rounded-lg border p-4 space-y-4 bg-muted/5 shadow-sm">
+    <div ref={containerRef} className="rounded-lg border p-4 space-y-4 bg-muted/5 shadow-sm">
       <VisualizationHeader
         title={entry.meta.title}
         renderer={entry.meta.renderer}
@@ -93,15 +97,19 @@ export function VisualizationSection({
         }
       />
       <div className="relative">
-        <Suspense fallback={<VizSkeleton />}>
-          <entry.component
-            {...vizRef.props}
-            values={values}
-            onChange={setValues}
-            key={`${vizRef.vizKey}-${topicId}`}
-            isPlaying={entry.meta.animated ? isPlaying : undefined}
-          />
-        </Suspense>
+        {isVisible ? (
+          <Suspense fallback={<VizSkeleton />}>
+            <entry.component
+              {...vizRef.props}
+              values={values}
+              onChange={setValues}
+              key={`${vizRef.vizKey}-${topicId}`}
+              isPlaying={entry.meta.animated ? isPlaying : undefined}
+            />
+          </Suspense>
+        ) : (
+          <VizSkeleton />
+        )}
       </div>
       {hasControls ? (
         <div className="border-t pt-4">

@@ -30,27 +30,26 @@ export interface Chapter extends ChapterMeta {
   topics: Topic[];
 }
 
-// Vite static discovery glob for chapter metas
+// Vite static discovery glob for chapter metas (keep eager as it's small and needed for routing/index)
 const chapterMetaModules = import.meta.glob<{ default: unknown }>(
   "../../content/chapters/*/meta.json",
   { eager: true }
 );
 
-// Vite static discovery glob for topic JSON files
-const topicModules = import.meta.glob<{ default: unknown }>(
-  "../../content/chapters/*/topics/*.json",
-  { eager: true }
+// Vite static discovery glob for topic JSON files (lazy to code-split content)
+const topicModules = import.meta.glob(
+  "../../content/chapters/*/topics/*.json"
 );
 
 let activeMetaModules: Record<string, { default: unknown }> = chapterMetaModules;
-let activeTopicModules: Record<string, { default: unknown }> = topicModules;
+let activeTopicModules: Record<string, () => Promise<unknown>> = topicModules as unknown as Record<string, () => Promise<unknown>>;
 
 export function setMockModulesForTest(
   metas: Record<string, { default: unknown }> | null,
-  topics: Record<string, { default: unknown }> | null
+  topics: Record<string, () => Promise<unknown>> | null
 ) {
   activeMetaModules = metas || chapterMetaModules;
-  activeTopicModules = topics || topicModules;
+  activeTopicModules = topics || (topicModules as unknown as Record<string, () => Promise<unknown>>);
 }
 
 /**
@@ -63,9 +62,9 @@ export function getAllChapterMetas(): ChapterMeta[] {
 }
 
 /**
- * Loads a single chapter, resolving all topics and validating visualizations.
+ * Loads a single chapter asynchronously, resolving all topics and validating visualizations.
  */
-export function loadChapter(chapterSlug: string): Chapter {
+export async function loadChapter(chapterSlug: string): Promise<Chapter> {
   const metaPath = `../../content/chapters/${chapterSlug}/meta.json`;
   const metaModule = activeMetaModules[metaPath];
   if (!metaModule) {
@@ -74,13 +73,14 @@ export function loadChapter(chapterSlug: string): Chapter {
 
   const meta = chapterMetaSchema.parse(metaModule.default);
 
-  const topics: Topic[] = meta.topicOrder.map((topicId) => {
+  const topicPromises = meta.topicOrder.map(async (topicId) => {
     const topicPath = `../../content/chapters/${chapterSlug}/topics/${topicId}.json`;
-    const topicModule = activeTopicModules[topicPath];
-    if (!topicModule) {
+    const topicLoader = activeTopicModules[topicPath];
+    if (!topicLoader) {
       throw new Error(`Topic "${topicId}" not found for chapter "${chapterSlug}"`);
     }
 
+    const topicModule = (await topicLoader()) as { default: unknown };
     const topic = topicSchema.parse(topicModule.default);
 
     // Validate visualization keys
@@ -92,6 +92,8 @@ export function loadChapter(chapterSlug: string): Chapter {
 
     return topic;
   });
+
+  const topics = await Promise.all(topicPromises);
 
   return {
     ...meta,

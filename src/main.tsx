@@ -3,19 +3,25 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import RootLayout from "./routes/root";
-import ChapterIndex from "./routes/chapter-index";
-import ChapterPage, { chapterLoader } from "./routes/chapter";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { index: true, element: <ChapterIndex /> },
+      {
+        index: true,
+        lazy: async () => {
+          const { default: Component } = await import("./routes/chapter-index");
+          return { Component };
+        },
+      },
       {
         path: "chapters/:chapterSlug",
-        element: <ChapterPage />,
-        loader: chapterLoader,
+        lazy: async () => {
+          const { default: Component, chapterLoader } = await import("./routes/chapter");
+          return { Component, loader: chapterLoader };
+        },
       },
     ],
   },

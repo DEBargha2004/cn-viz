@@ -5,7 +5,7 @@ afterEach(() => {
   setMockModulesForTest(null, null);
 });
 
-test("loadChapter parses valid chapter and orders topics correctly", () => {
+test("loadChapter parses valid chapter and orders topics correctly", async () => {
   const mockMetas = {
     "../../content/chapters/test-chapter/meta.json": {
       default: {
@@ -18,15 +18,15 @@ test("loadChapter parses valid chapter and orders topics correctly", () => {
   };
 
   const mockTopics = {
-    "../../content/chapters/test-chapter/topics/topic-a.json": {
+    "../../content/chapters/test-chapter/topics/topic-a.json": async () => ({
       default: {
         id: "topic-a",
         title: "Topic A",
         markdown: "Content A",
         visualizations: [],
       },
-    },
-    "../../content/chapters/test-chapter/topics/topic-b.json": {
+    }),
+    "../../content/chapters/test-chapter/topics/topic-b.json": async () => ({
       default: {
         id: "topic-b",
         title: "Topic B",
@@ -40,12 +40,12 @@ test("loadChapter parses valid chapter and orders topics correctly", () => {
           },
         ],
       },
-    },
+    }),
   };
 
   setMockModulesForTest(mockMetas, mockTopics);
 
-  const chapter = loadChapter("test-chapter");
+  const chapter = await loadChapter("test-chapter");
   expect(chapter.id).toBe("test-chapter");
   expect(chapter.title).toBe("Test Chapter");
   expect(chapter.topics).toHaveLength(2);
@@ -54,12 +54,12 @@ test("loadChapter parses valid chapter and orders topics correctly", () => {
   expect(chapter.topics[0].visualizations[0].vizKey).toBe("sine-wave");
 });
 
-test("loadChapter throws error when chapter meta is missing", () => {
+test("loadChapter throws error when chapter meta is missing", async () => {
   setMockModulesForTest({}, {});
-  expect(() => loadChapter("missing-chapter")).toThrow('Chapter "missing-chapter" not found');
+  await expect(loadChapter("missing-chapter")).rejects.toThrow('Chapter "missing-chapter" not found');
 });
 
-test("loadChapter throws error when topic is listed in meta but file is missing", () => {
+test("loadChapter throws error when topic is listed in meta but file is missing", async () => {
   const mockMetas = {
     "../../content/chapters/test-chapter/meta.json": {
       default: {
@@ -72,10 +72,10 @@ test("loadChapter throws error when topic is listed in meta but file is missing"
   };
 
   setMockModulesForTest(mockMetas, {});
-  expect(() => loadChapter("test-chapter")).toThrow('Topic "missing-topic" not found');
+  await expect(loadChapter("test-chapter")).rejects.toThrow('Topic "missing-topic" not found');
 });
 
-test("loadChapter throws validation error when chapter meta schema is violated", () => {
+test("loadChapter throws validation error when chapter meta schema is violated", async () => {
   const mockMetas = {
     "../../content/chapters/test-chapter/meta.json": {
       default: {
@@ -88,10 +88,10 @@ test("loadChapter throws validation error when chapter meta schema is violated",
   };
 
   setMockModulesForTest(mockMetas, {});
-  expect(() => loadChapter("test-chapter")).toThrow();
+  await expect(loadChapter("test-chapter")).rejects.toThrow();
 });
 
-test("loadChapter throws validation error when topic uses unknown vizKey", () => {
+test("loadChapter throws validation error when topic uses unknown vizKey", async () => {
   const mockMetas = {
     "../../content/chapters/test-chapter/meta.json": {
       default: {
@@ -104,7 +104,7 @@ test("loadChapter throws validation error when topic uses unknown vizKey", () =>
   };
 
   const mockTopics = {
-    "../../content/chapters/test-chapter/topics/topic-a.json": {
+    "../../content/chapters/test-chapter/topics/topic-a.json": async () => ({
       default: {
         id: "topic-a",
         title: "Topic A",
@@ -116,9 +116,9 @@ test("loadChapter throws validation error when topic uses unknown vizKey", () =>
           },
         ],
       },
-    },
+    }),
   };
 
   setMockModulesForTest(mockMetas, mockTopics);
-  expect(() => loadChapter("test-chapter")).toThrow('Unknown visualization key "unregistered-key"');
+  await expect(loadChapter("test-chapter")).rejects.toThrow('Unknown visualization key "unregistered-key"');
 });
