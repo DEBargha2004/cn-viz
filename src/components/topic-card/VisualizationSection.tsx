@@ -1,4 +1,4 @@
-import { Suspense, useState, useRef } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import { vizRegistry } from "../../visualizations/registry";
 import { useVizState } from "../../state/useVizState";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
@@ -26,9 +26,12 @@ export function UnknownVizFallback({ vizKey }: { vizKey: string }) {
   );
 }
 
-export function VizSkeleton() {
+export function VizSkeleton({ minHeight }: { minHeight?: number }) {
   return (
-    <div className="flex h-[200px] w-full animate-pulse items-center justify-center rounded-lg bg-muted/30 border">
+    <div
+      className="flex w-full animate-pulse items-center justify-center rounded-lg bg-muted/30 border"
+      style={{ height: minHeight ? `${minHeight}px` : "200px" }}
+    >
       <div className="text-sm text-muted-foreground font-medium">
         Loading visualization...
       </div>
@@ -46,7 +49,37 @@ export function VisualizationSection({
   vizRef,
 }: VisualizationSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isVisible = useIntersectionObserver(containerRef);
+  const vizWrapperRef = useRef<HTMLDivElement>(null);
+  const [recordedHeight, setRecordedHeight] = useState<number | undefined>(
+    undefined,
+  );
+
+  // We set freezeOnceVisible: false so heavy WebGL/Canvas elements unmount to save RAM/GPU.
+  // The recordedHeight state completely prevents the layout shift when they unmount.
+  const isVisible = useIntersectionObserver(containerRef, {
+    freezeOnceVisible: false,
+    rootMargin: "600px 0px", // Larger margin to load before user sees it
+  });
+
+  // Track the precise height of the visualization while it is mounted
+  useEffect(() => {
+    if (isVisible && vizWrapperRef.current) {
+      const resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.contentRect.height > 0) {
+            // We use borderBoxSize if available for exact dimensions including borders/padding,
+            // otherwise fallback to bounding client rect height.
+            const height =
+              entry.borderBoxSize?.[0]?.blockSize ??
+              entry.target.getBoundingClientRect().height;
+            setRecordedHeight(height);
+          }
+        }
+      });
+      resizeObserver.observe(vizWrapperRef.current);
+      return () => resizeObserver.disconnect();
+    }
+  }, [isVisible]);
 
   const entry = vizRegistry[vizRef.vizKey];
 
@@ -72,7 +105,10 @@ export function VisualizationSection({
     (entry.meta.params && entry.meta.params.length > 0) || entry.meta.animated;
 
   return (
-    <div ref={containerRef} className="rounded-lg border p-4 space-y-4 bg-muted/5 shadow-sm">
+    <div
+      ref={containerRef}
+      className="rounded-lg border p-4 space-y-4 bg-muted/5 shadow-sm"
+    >
       <VisualizationHeader
         title={entry.meta.title}
         renderer={entry.meta.renderer}
@@ -83,7 +119,7 @@ export function VisualizationSection({
             <Button
               variant={isPlaying ? "outline" : "default"}
               size="sm"
-              className="h-7 text-xs gap-1.5 shadow-2xs"
+              className="h-7 text-xs gap-1.5 shadow-2xs cursor-pointer"
               onClick={() => setIsPlaying((prev) => !prev)}
             >
               {isPlaying ? (
@@ -96,9 +132,9 @@ export function VisualizationSection({
           ) : undefined
         }
       />
-      <div className="relative">
+      <div className="relative w-full" ref={vizWrapperRef}>
         {isVisible ? (
-          <Suspense fallback={<VizSkeleton />}>
+          <Suspense fallback={<VizSkeleton minHeight={recordedHeight} />}>
             <entry.component
               {...vizRef.props}
               values={values}
@@ -108,7 +144,7 @@ export function VisualizationSection({
             />
           </Suspense>
         ) : (
-          <VizSkeleton />
+          <VizSkeleton minHeight={recordedHeight} />
         )}
       </div>
       {hasControls ? (
@@ -123,4 +159,3 @@ export function VisualizationSection({
     </div>
   );
 }
-

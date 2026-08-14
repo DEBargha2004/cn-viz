@@ -788,7 +788,7 @@ export default function OsiStack({ values, onChange }: Props) {
                       y={yPos + 21}
                       className={`text-[11px] ${
                         isSelected
-                          ? "fill-primary dark:fill-primary-foreground"
+                          ? "fill-primary"
                           : "fill-slate-800 dark:fill-slate-200"
                       }`}
                     >

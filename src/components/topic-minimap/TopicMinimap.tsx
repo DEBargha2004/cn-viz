@@ -116,6 +116,7 @@ export function TopicMinimapHeader({ chapter }: TopicMinimapProps) {
               return (
                 <button
                   key={topic.id}
+                  title={topic.title}
                   onClick={() => scrollToTopic(topic.id)}
                   className={cn(
                     "first:ml-1 flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs transition-all duration-200 cursor-pointer border",
@@ -259,6 +260,7 @@ function TopicProgressRail({
               return (
                 <button
                   key={topic.id}
+                  title={topic.title}
                   onClick={() => onSelectTopic(topic.id)}
                   className={cn(
                     "group flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-xl text-xs text-left transition-all duration-150 cursor-pointer border w-full",
@@ -416,6 +418,7 @@ function TopicMinimapMobile({
                   return (
                     <button
                       key={topic.id}
+                      title={topic.title}
                       onClick={() => {
                         onSelectTopic(topic.id);
                         setDrawerOpen(false);

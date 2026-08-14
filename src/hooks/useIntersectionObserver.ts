@@ -2,6 +2,7 @@ import { useState, useEffect, type RefObject } from "react";
 
 interface UseIntersectionObserverOptions extends IntersectionObserverInit {
   enabled?: boolean;
+  freezeOnceVisible?: boolean;
 }
 
 /**
@@ -13,7 +14,13 @@ export function useIntersectionObserver(
   targetRef: RefObject<Element | null>,
   options: UseIntersectionObserverOptions = {}
 ): boolean {
-  const { root = null, rootMargin = "300px 0px", threshold = 0, enabled = true } = options;
+  const {
+    root = null,
+    rootMargin = "300px 0px",
+    threshold = 0,
+    enabled = true,
+    freezeOnceVisible = true,
+  } = options;
 
   const [isIntersecting, setIsIntersecting] = useState<boolean>(() => {
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
@@ -35,7 +42,14 @@ export function useIntersectionObserver(
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          if (freezeOnceVisible) {
+            observer.unobserve(element);
+          }
+        } else if (!freezeOnceVisible) {
+          setIsIntersecting(false);
+        }
       },
       { root, rootMargin, threshold }
     );
@@ -45,7 +59,7 @@ export function useIntersectionObserver(
     return () => {
       observer.disconnect();
     };
-  }, [targetRef, root, rootMargin, threshold, enabled]);
+  }, [targetRef, root, rootMargin, threshold, enabled, freezeOnceVisible]);
 
   return isIntersecting;
 }

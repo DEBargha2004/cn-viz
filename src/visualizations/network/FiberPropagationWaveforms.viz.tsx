@@ -861,7 +861,7 @@ function InteractiveWaveformCanvas({
   const outPulse2End = Math.min(370, p2Start + outPulseWidthPx);
 
   // Is ISI occurring? (Pulse 1 broadened tail extends past the start of Pulse 2!)
-  const isISI = modeType === "step" && outPulse1End > p2Start;
+  const isISI = outPulse1End > p2Start;
 
   // Single continuous path string builder for Received Waveform (0 to 370px)
   const getReceivedWaveformPath = () => {
@@ -1434,7 +1434,7 @@ function InteractiveWaveformCanvas({
           {/* Inter-Symbol Interference (ISI) Highlight badge centered over Bit 0 when pulses physically merge */}
           {isISI && (
             <g
-              transform={`translate(${Math.round(p1End + pulsePx / 2 - 37.5)}, 70)`}
+              transform={`translate(${Math.round(p1End + pulsePx / 2 - 37.5)}, 36)`}
             >
               <rect
                 x="0"
@@ -1474,10 +1474,10 @@ function InteractiveWaveformCanvas({
           >
             {modeType === "single"
               ? "✓ Zero ISI: Bit 1 and Bit 0 clearly separated"
-              : modeType === "graded"
-                ? "⚡ Minor Broadening: Bit 0 detectable"
-                : isISI
-                  ? "⚠ Severe ISI: Pulses merge, causing bit errors at receiver"
+              : isISI
+                ? "⚠ Severe ISI: Pulses merge, causing bit errors at receiver"
+                : modeType === "graded"
+                  ? "⚡ Minor Broadening: Bit 0 detectable"
                   : "✓ Low ISI: Pulses sufficiently separated for T₀"}
           </text>
         </g>
