@@ -18,35 +18,6 @@ export const vizMeta: VizMeta = {
   category: "network",
   renderer: "svg",
   animated: true,
-  params: [
-    {
-      key: "launchAngle",
-      type: "number",
-      label: "Angle of Incidence θᵢ (°)",
-      default: 78,
-      min: 40,
-      max: 88,
-      step: 1,
-    },
-    {
-      key: "n1",
-      type: "number",
-      label: "Core Refractive Index (n₁)",
-      default: 1.48,
-      min: 1.40,
-      max: 1.65,
-      step: 0.01,
-    },
-    {
-      key: "n2",
-      type: "number",
-      label: "Cladding Refractive Index (n₂)",
-      default: 1.45,
-      min: 1.30,
-      max: 1.47,
-      step: 0.01,
-    },
-  ],
 };
 
 interface Props {
@@ -487,11 +458,12 @@ export default function FiberLightPath({ values, isPlaying: isPlayingProp }: Pro
           {activePlaying && (
             <path
               d={rayPathD}
+              pathLength="1000"
               fill="none"
               stroke="#e0f2fe"
               strokeWidth="6"
-              strokeDasharray="20 120"
-              strokeDashoffset={-pulseProgress * 280}
+              strokeDasharray="50 450"
+              strokeDashoffset={-pulseProgress * 1000}
               strokeLinecap="round"
               filter={`url(#${glowLaserId})`}
             />

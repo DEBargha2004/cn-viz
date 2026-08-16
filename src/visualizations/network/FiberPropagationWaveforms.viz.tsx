@@ -19,36 +19,18 @@ export const vizMeta: VizMeta = {
   renderer: "svg",
   animated: true,
   params: [
-    {
-      key: "mode",
-      type: "select",
-      label: "Propagation mode",
-      default: "all",
-      options: [
-        { label: "Show all three modes", value: "all" },
-        { label: "Multimode, step index", value: "step" },
-        { label: "Multimode, graded index", value: "graded" },
-        { label: "Single mode", value: "single" },
-      ],
-    },
-    {
-      key: "cableLength",
-      type: "number",
-      label: "Cable Length (km)",
-      default: 5.0,
-      min: 1.0,
-      max: 10.0,
-      step: 0.5,
-    },
-    {
-      key: "pulseWidth",
-      type: "number",
-      label: "Input Pulse Width T₀ (ns)",
-      default: 20.0,
-      min: 5.0,
-      max: 50.0,
-      step: 1.0,
-    },
+    // {
+    //   key: "mode",
+    //   type: "select",
+    //   label: "Propagation mode",
+    //   default: "all",
+    //   options: [
+    //     { label: "Show all three modes", value: "all" },
+    //     { label: "Multimode, step index", value: "step" },
+    //     { label: "Multimode, graded index", value: "graded" },
+    //     { label: "Single mode", value: "single" },
+    //   ],
+    // },
   ],
 };
 
@@ -367,8 +349,8 @@ export default function FiberPropagationWaveforms({
           </h5>
           <p className="text-xs text-muted-foreground leading-relaxed">
             Light rays entering at steep angles bounce many times and travel a
-            longer physical path than axial rays. In a uniform core index
-            ($n_1$), this path difference creates severe modal delay (
+            longer physical path than axial rays. In a uniform core index (n₁),
+            this path difference creates severe modal delay (
             <span className="font-semibold text-rose-500">
               Δt ≈ {skewStepNs} ns
             </span>
@@ -382,8 +364,8 @@ export default function FiberPropagationWaveforms({
             (Graded-Index)
           </h5>
           <p className="text-xs text-muted-foreground leading-relaxed">
-            Features a parabolic refractive index core profile $n(r)$. Outer
-            rays travel longer curved paths but move faster through lower-index
+            Features a parabolic refractive index core profile n(r). Outer rays
+            travel longer curved paths but move faster through lower-index
             material, equalizing transit times (
             <span className="font-semibold text-amber-500">
               Δt ≈ {skewGradedNs} ns
@@ -399,7 +381,7 @@ export default function FiberPropagationWaveforms({
           <p className="text-xs text-muted-foreground leading-relaxed">
             By shrinking core diameter to{" "}
             <span className="font-semibold text-foreground">8–10 μm</span>, only
-            the fundamental axial mode ($HE_{11}$) propagates. With{" "}
+            the fundamental axial mode (HE₁₁) propagates. With{" "}
             <span className="font-bold text-emerald-500">
               zero modal dispersion (Δt = 0 ns)
             </span>
@@ -488,6 +470,32 @@ function SingleModePanel({
 
   // Dynamic pulse pixel width
   const pulsePx = Math.max(12, Math.min(45, (pulseWidth / 50) * 35));
+
+  // Skew in pixels proportional to modal delay skewNs and pulse time scale factor
+  const skewPx =
+    modeType === "single"
+      ? 0
+      : Math.min(65, (skewNs / pulseWidth) * pulsePx * 1.1);
+  const outPulseWidthPx = pulsePx + skewPx;
+
+  // Animation path properties with exact pattern lengths for seamless looping
+  const pathAnimData = {
+    single: {
+      d: "M 0 60 L 230 60",
+      dashArray: "16 99",
+      pathLength: 230,
+    },
+    graded: {
+      d: "M 0 60 Q 57.5 28 115 60 T 230 60",
+      dashArray: "16 103.46",
+      pathLength: 238.92,
+    },
+    step: {
+      d: "M 0 60 L 38 27 L 115 93 L 192 27 L 230 60",
+      dashArray: "16 135.75",
+      pathLength: 303.49,
+    },
+  }[modeType];
 
   return (
     <div
@@ -700,18 +708,12 @@ function SingleModePanel({
 
             {isPlaying && (
               <path
-                d={
-                  modeType === "single"
-                    ? "M 0 60 L 230 60"
-                    : modeType === "graded"
-                      ? "M 0 60 Q 57.5 28 115 60 T 230 60"
-                      : "M 0 60 L 38 27 L 115 93 L 192 27 L 230 60"
-                }
+                d={pathAnimData.d}
                 fill="none"
                 stroke="#ffffff"
                 strokeWidth="4"
-                strokeDasharray="12 100"
-                strokeDashoffset={-pulseProgress * 200}
+                strokeDasharray={pathAnimData.dashArray}
+                strokeDashoffset={-pulseProgress * pathAnimData.pathLength}
                 strokeLinecap="round"
               />
             )}
@@ -769,14 +771,14 @@ function SingleModePanel({
               />
             ) : modeType === "graded" ? (
               <path
-                d={`M 15 68 L 35 68 Q ${35 + (pulsePx + skewNs * 0.8) / 2} 32 ${Math.min(215, 35 + pulsePx + skewNs * 0.8)} 68 L 215 68`}
+                d={`M 15 68 L 35 68 Q ${35 + outPulseWidthPx / 2} 32 ${Math.min(215, 35 + outPulseWidthPx)} 68 L 215 68`}
                 fill="none"
                 stroke="#d97706"
                 strokeWidth="2"
               />
             ) : (
               <path
-                d={`M 15 68 L 35 68 Q ${35 + (pulsePx + skewNs * 1.5) / 2} 35 ${Math.min(215, 35 + pulsePx + skewNs * 1.5)} 68 L 215 68`}
+                d={`M 15 68 L 35 68 Q ${35 + outPulseWidthPx / 2} 35 ${Math.min(215, 35 + outPulseWidthPx)} 68 L 215 68`}
                 fill="none"
                 stroke="#dc2626"
                 strokeWidth="2"
@@ -835,6 +837,25 @@ function InteractiveWaveformCanvas({
       : modeType === "graded"
         ? "#d97706"
         : "#dc2626";
+
+  // Animation path properties with exact pattern lengths for seamless looping
+  const pathAnimData = {
+    single: {
+      d: "M 0 77.5 L 390 77.5",
+      dashArray: "20 175",
+      pathLength: 390,
+    },
+    graded: {
+      d: "M 0 77.5 Q 97.5 32 195 77.5 T 390 77.5",
+      dashArray: "20 183.78",
+      pathLength: 407.56,
+    },
+    step: {
+      d: "M 0 77.5 L 64 32 L 195 122 L 325 32 L 390 77.5",
+      dashArray: "20 217.87",
+      pathLength: 475.74,
+    },
+  }[modeType];
 
   // Pulse width in pixels: T0 (range 5ns..50ns -> 25px..60px)
   const pulsePx = Math.max(25, Math.min(60, (pulseWidth / 50) * 50));
@@ -1169,18 +1190,12 @@ function InteractiveWaveformCanvas({
         {/* Photon Particle Flow */}
         {isPlaying && (
           <path
-            d={
-              modeType === "single"
-                ? "M 0 77.5 L 390 77.5"
-                : modeType === "graded"
-                  ? "M 0 77.5 Q 97.5 32 195 77.5 T 390 77.5"
-                  : "M 0 77.5 L 64 32 L 195 122 L 325 32 L 390 77.5"
-            }
+            d={pathAnimData.d}
             fill="none"
             stroke="#ffffff"
             strokeWidth="4.5"
-            strokeDasharray="16 130"
-            strokeDashoffset={-pulseProgress * 300}
+            strokeDasharray={pathAnimData.dashArray}
+            strokeDashoffset={-pulseProgress * pathAnimData.pathLength}
             strokeLinecap="round"
           />
         )}
@@ -1364,7 +1379,7 @@ function InteractiveWaveformCanvas({
           </text>
           <text
             x={p1End + pulsePx / 2}
-            y="124"
+            y="144"
             textAnchor="middle"
             fontSize="10"
             fontWeight="extrabold"

@@ -21,48 +21,48 @@ export const vizMeta: VizMeta = {
   renderer: "svg",
   animated: true,
   params: [
-    {
-      key: "angleCase",
-      type: "select",
-      label: "Angle case",
-      default: "all",
-      options: [
-        { label: "Show all three", value: "all" },
-        { label: "Less than critical (refraction)", value: "less" },
-        {
-          label: "Equal to critical (refraction along boundary)",
-          value: "equal",
-        },
-        { label: "Greater than critical (reflection)", value: "greater" },
-      ],
-    },
-    {
-      key: "incidentAngle",
-      type: "number",
-      label: "Incident Angle θᵢ (°)",
-      default: 42.5,
-      min: 15,
-      max: 85,
-      step: 0.5,
-    },
-    {
-      key: "n1",
-      type: "number",
-      label: "Core Medium Index (n₁)",
-      default: 1.48,
-      min: 1.3,
-      max: 1.7,
-      step: 0.01,
-    },
-    {
-      key: "n2",
-      type: "number",
-      label: "Cladding Medium Index (n₂)",
-      default: 1.0,
-      min: 1.0,
-      max: 1.45,
-      step: 0.01,
-    },
+    // {
+    //   key: "angleCase",
+    //   type: "select",
+    //   label: "Angle case",
+    //   default: "all",
+    //   options: [
+    //     { label: "Show all three", value: "all" },
+    //     { label: "Less than critical (refraction)", value: "less" },
+    //     {
+    //       label: "Equal to critical (refraction along boundary)",
+    //       value: "equal",
+    //     },
+    //     { label: "Greater than critical (reflection)", value: "greater" },
+    //   ],
+    // },
+    // {
+    //   key: "incidentAngle",
+    //   type: "number",
+    //   label: "Incident Angle θᵢ (°)",
+    //   default: 42.5,
+    //   min: 15,
+    //   max: 85,
+    //   step: 0.5,
+    // },
+    // {
+    //   key: "n1",
+    //   type: "number",
+    //   label: "Core Medium Index (n₁)",
+    //   default: 1.48,
+    //   min: 1.3,
+    //   max: 1.7,
+    //   step: 0.01,
+    // },
+    // {
+    //   key: "n2",
+    //   type: "number",
+    //   label: "Cladding Medium Index (n₂)",
+    //   default: 1.0,
+    //   min: 1.0,
+    //   max: 1.45,
+    //   step: 0.01,
+    // },
   ],
 };
 
@@ -126,11 +126,17 @@ export default function CriticalAngle({
   // Determine effective incident angle based on selected angleCase preset or custom slider value
   let effectiveIncidentAngle = incidentAngle;
   if (angleCase === "less") {
-    effectiveIncidentAngle = Math.max(15, Number((criticalAngleDeg - 15).toFixed(1)));
+    effectiveIncidentAngle = Math.max(
+      15,
+      Number((criticalAngleDeg - 15).toFixed(1)),
+    );
   } else if (angleCase === "equal") {
     effectiveIncidentAngle = Number(criticalAngleDeg.toFixed(1));
   } else if (angleCase === "greater") {
-    effectiveIncidentAngle = Math.min(85, Number((criticalAngleDeg + 18).toFixed(1)));
+    effectiveIncidentAngle = Math.min(
+      85,
+      Number((criticalAngleDeg + 18).toFixed(1)),
+    );
   }
 
   // Optical State Classification using effectiveIncidentAngle
@@ -793,8 +799,8 @@ function SingleRayPanel({
               fill="none"
               stroke="#ffffff"
               strokeWidth="5"
-              strokeDasharray="14 120"
-              strokeDashoffset={-pulseProgress * 240}
+              strokeDasharray="16 109"
+              strokeDashoffset={-pulseProgress * 250}
               strokeLinecap="round"
               filter={`url(#${glowId})`}
             />
@@ -1081,8 +1087,6 @@ function InteractiveRayCanvas({
         </g>
       )}
 
-
-
       {/* INCIDENT LIGHT RAY */}
       <line
         x1={incX}
@@ -1160,8 +1164,8 @@ function InteractiveRayCanvas({
           fill="none"
           stroke="#ffffff"
           strokeWidth="6"
-          strokeDasharray="18 140"
-          strokeDashoffset={-pulseProgress * 320}
+          strokeDasharray="20 155"
+          strokeDashoffset={-pulseProgress * 350}
           strokeLinecap="round"
           filter={`url(#${glowId})`}
         />

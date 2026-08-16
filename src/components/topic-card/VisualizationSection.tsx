@@ -147,7 +147,7 @@ export function VisualizationSection({
           <VizSkeleton minHeight={recordedHeight} />
         )}
       </div>
-      {hasControls ? (
+      {hasControls && (entry.meta.params?.length ?? 0) > 0 ? (
         <div className="border-t pt-4">
           <ControlPanel
             params={entry.meta.params ?? []}

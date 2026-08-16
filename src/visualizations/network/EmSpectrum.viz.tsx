@@ -24,15 +24,6 @@ export const vizMeta: VizMeta = {
         { label: "Ionizing Radiation (UV / X-Ray / Gamma)", value: "ionizing" },
       ],
     },
-    {
-      key: "freqLog",
-      type: "number",
-      label: "Frequency log₁₀(f)",
-      default: 9.38, // ~2.4 GHz (Wi-Fi band)
-      min: 3.0,
-      max: 19.0,
-      step: 0.1,
-    },
   ],
 };
 
