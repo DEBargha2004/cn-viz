@@ -1,0 +1,12 @@
+        Note
+
+           In the full-duplex mode of Gigabit
+             Ethernet, there is no collision;
+          the maximum length of the cable is
+         determined by the signal attenuation
+                       in the cable.
+
+
+
+
+13.35

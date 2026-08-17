@@ -1,0 +1,6 @@
+   Figure 13.2 HDLC frame compared with LLC and MAC frames
+
+
+
+
+13.4

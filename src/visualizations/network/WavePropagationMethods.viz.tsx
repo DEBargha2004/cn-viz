@@ -12,6 +12,7 @@ import {
   Rotate3D,
   BookOpen,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const vizMeta: VizMeta = {
   key: "network-wave-propagation-methods",
@@ -44,15 +45,6 @@ export const vizMeta: VizMeta = {
           value: "line-of-sight",
         },
       ],
-    },
-    {
-      key: "ionosphereHeight",
-      type: "number",
-      label: "Ionosphere Layer (km)",
-      default: 250,
-      min: 100,
-      max: 400,
-      step: 25,
     },
   ],
 };
@@ -1540,13 +1532,13 @@ function TextbookGlobeCard({
 
   const cardStyle = isSelected
     ? method === "ground"
-      ? "bg-rose-500/10 border-rose-500/60 ring-2 ring-rose-500/40 shadow-lg scale-[1.02]"
+      ? "bg-card border-rose-500/60 ring-2 ring-rose-500/40 shadow-lg scale-[1.02]"
       : method === "sky"
-        ? "bg-purple-500/10 border-purple-500/60 ring-2 ring-purple-500/40 shadow-lg scale-[1.02]"
-        : "bg-emerald-500/10 border-emerald-500/60 ring-2 ring-emerald-500/40 shadow-lg scale-[1.02]"
+        ? "bg-card border-purple-500/60 ring-2 ring-purple-500/40 shadow-lg scale-[1.02]"
+        : "bg-card border-emerald-500/60 ring-2 ring-emerald-500/40 shadow-lg scale-[1.02]"
     : active
       ? "bg-card border-border hover:border-amber-500/50 shadow-sm hover:shadow-md cursor-pointer"
-      : "bg-muted/10 border-border opacity-50 hover:opacity-80 cursor-pointer";
+      : "bg-card border-border opacity-50 hover:opacity-80 cursor-pointer";
 
   // Vertical Tower Geometry (Straight vertical masts parallel to Y-axis)
   const dx = 38; // horizontal spacing from center
@@ -1580,7 +1572,10 @@ function TextbookGlobeCard({
   return (
     <div
       onClick={onClick}
-      className={`flex flex-col items-center p-3.5 rounded-xl border transition-all ${cardStyle}`}
+      className={cn(
+        `flex flex-col items-center p-3.5 rounded-xl border transition-all`,
+        cardStyle,
+      )}
     >
       <svg
         viewBox={`0 0 ${w} ${h}`}

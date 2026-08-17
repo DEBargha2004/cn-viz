@@ -1,0 +1,6 @@
+  Figure 13.16 Collision domains in an unbridged network and a bridged network
+
+
+
+
+13.26

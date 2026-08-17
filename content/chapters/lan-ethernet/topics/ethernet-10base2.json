@@ -1,0 +1,13 @@
+{
+  "id": "ethernet-10base2",
+  "title": "10Base2",
+  "markdown": "## 10Base2 (Thin Ethernet)\n\nA **thin coaxial cable** (maximum 185 m) snakes from a cable-end cap, up through stations (each\ntapped on via small diamond T-connectors). Unlike 10Base5's\nstraight bus with drop cables, 10Base2 stations connect directly\nin-line on the thin coax via T-connectors.\n\n{{viz:0}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-bus-topology-ethernet",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

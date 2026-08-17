@@ -1,0 +1,25 @@
+{
+  "id": "fast-ethernet",
+  "title": "Fast Ethernet",
+  "markdown": "## Fast Ethernet\n\nFast Ethernet was designed to compete with LAN protocols such as FDDI\nor Fiber Channel. IEEE created Fast Ethernet under the name **802.3u**.\nFast Ethernet is backward-compatible with Standard Ethernet but\ntransmits data 10 times faster, at 100 Mbps.\n\n### Fast Ethernet Topology\n\nTwo panels:\n- **(a) Point-to-point**: two stations connected directly by a single\n  line, no intermediate device.\n- **(b) Star**: a **Switch** box at top connects down to three\n  stations, each via its own line.\n\n{{viz:0}}\n\n### Fast Ethernet Implementations\n\n| Characteristics | 100Base-TX | 100Base-FX | 100Base-T4 |\n|---|---|---|---|\n| Media | Cat 5 UTP or STP | Fiber | Cat 4 UTP |\n| Number of wires | 2 | 2 | 4 |\n| Maximum length | 100 m | 100 m | 100 m |\n| Block encoding | 4B/5B | 4B/5B | *(none)* |\n| Line encoding | MLT-3 | NRZ-I | 8B/6T |\n\n{{viz:1}}\n\n### Encoding for Fast Ethernet\n\nThree station-block diagrams:\n\n- **100Base-TX**: 4×25 Mbps lines feed a yellow **4B/5B encoder** block\n  → 125 Mbps → a pink **MLT-3 encoder** block → out over **two UTP\n  category 5** wires (and symmetric decoder path back: MLT-3 decoder →\n  4B/5B decoder → 4×25 Mbps).\n- **100Base-FX**: identical two-stage structure (yellow **4B/5B\n  encoder** → pink **NRZ-I encoder**) but the outbound medium is\n  **two fibers** instead of UTP.\n- **100Base-T4**: a single-stage pink **8B/6T encoder**/**decoder** pair\n  (100 Mbps in/out, no separate block-encoding stage), fanning out to\n  **4 category 3 UTP** wires with a mix of send/receive/bidirectional\n  arrows.\n\n{{viz:2}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-switch-topology-panels",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-category-tree",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-two-stage-encoder-decoder-block",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

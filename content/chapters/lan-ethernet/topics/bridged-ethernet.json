@@ -1,0 +1,19 @@
+{
+  "id": "bridged-ethernet",
+  "title": "Bridged Ethernet",
+  "markdown": "- **(a) Without bridging**: 12 stations (two visual clusters of 6) all\n  sit on one continuous bus line — one single network.\n- **(b) With bridging**: the same 12 stations are split into two\n  6-station bus segments, joined in the middle by a **Bridge** device.\n\n{{viz:0}}\n\n- **(a) Without bridging**: all 12 stations sit inside **one** large\n  collision domain spanning the whole bus.\n- **(b) With bridging**: the bridge divides the network into multiple\n  isolated collision domains.\n\n{{viz:1}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-bus-bridge-comparison",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-collision-domain-comparison",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

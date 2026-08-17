@@ -1,0 +1,11 @@
+        Note
+
+        The least significant bit of the first byte
+              defines the type of address.
+         If the bit is 0, the address is unicast;
+                otherwise, it is multicast.
+
+
+
+
+13.12

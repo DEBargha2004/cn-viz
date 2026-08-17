@@ -1,0 +1,19 @@
+{
+  "id": "ethernet-addressing",
+  "title": "Ethernet Addressing",
+  "markdown": "An Ethernet (MAC) address is 6 bytes = 12 hex digits = 48 bits, written\ncolon-separated, e.g. `06:01:02:01:2C:4B`.\n\n{{viz:0}}\n\nA 6-byte address (Byte 1 through Byte 6) is shown as six boxes. The\nleast significant bit of **Byte 1** (the rightmost bit, marked with a\ndot) determines the address type: `0` = unicast, `1` = multicast.\n\n> **Note:** The least significant bit of the first byte defines the\n> type of address. If the bit is 0, the address is unicast; otherwise,\n> it is multicast.\n\n> **Note:** The broadcast destination address is a special case of the\n> multicast address in which all bits are 1s.\n\n{{viz:1}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-address-byte-diagram",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-address-byte-diagram",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

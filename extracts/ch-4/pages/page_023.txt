@@ -1,0 +1,20 @@
+  13--3 CHANGES IN THE STANDARD
+  13
+
+  The 10 10--Mbps Standard Ethernet has gone through
+  several changes before moving to the higher data
+  rates.. These changes actually opened the road to the
+  rates
+  evolution of the Ethernet to become compatible with
+  other high
+          high--data
+                data--rate LANs
+                           LANs..
+
+  Topics discussed in this section:
+ Bridged Ethernet
+ Switched Ethernet
+ Full-Duplex Ethernet
+
+
+13.23

@@ -1,0 +1,20 @@
+  13--1 IEEE STANDARDS
+  13
+
+   In 1985,
+      1985, the Computer Society of the IEEE started a
+   project, called Project 802,
+                           802, to set standards to enable
+   intercommunication among equipment from a variety
+   of manufacturers
+      manufacturers.. Project 802 is a way of specifying
+   functions of the physical layer and the data link layer
+   of major LAN protocols
+                  protocols..
+
+  Topics discussed in this section:
+ Data Link Layer
+ Physical Layer
+
+
+13.2

@@ -1,0 +1,19 @@
+  13--5 GIGABIT ETHERNET
+  13
+
+ The need for an even higher data rate resulted in the
+ design of the Gigabit Ethernet protocol (1000 Mbps)
+                                               Mbps)..
+ The IEEE committee calls the standard 802.
+                                       802.3z.
+
+
+
+
+  Topics discussed in this section:
+ MAC Sublayer
+ Physical Layer
+ Ten-Gigabit Ethernet
+
+
+13.34

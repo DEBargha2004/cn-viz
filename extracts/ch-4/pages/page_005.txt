@@ -1,0 +1,20 @@
+  13--2 STANDARD ETHERNET
+  13
+
+ The original Ethernet was created in 1976 at Xerox’s
+ Palo Alto Research Center (PARC)
+                             (PARC).. Since then, it has
+ gone through four generations
+                     generations.. We briefly discuss the
+ Standard (or traditional) Ethernet in this section.
+                                            section.
+
+
+
+  Topics discussed in this section:
+ MAC Sublayer
+ Physical Layer
+
+
+
+13.5

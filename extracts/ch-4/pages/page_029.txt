@@ -1,0 +1,19 @@
+  13--4 FAST ETHERNET
+  13
+
+  Fast Ethernet was designed to compete with LAN
+  protocols such as FDDI or Fiber Channel
+                                        Channel.. IEEE
+  created Fast Ethernet under the name 802.802.3u. Fast
+  Ethernet is backward
+                 backward--compatible with Standard
+  Ethernet, but it can transmit data 10 times faster at a
+  rate of 100 Mbps.
+              Mbps.
+
+  Topics discussed in this section:
+ MAC Sublayer
+ Physical Layer
+
+
+13.29

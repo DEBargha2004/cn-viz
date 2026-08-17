@@ -1,0 +1,22 @@
+{
+  "id": "lan-ethernet",
+  "title": "Wired LANs: Ethernet",
+  "order": 4,
+  "topicOrder": [
+    "ieee-802-project",
+    "hdlc-vs-llc-mac-frames",
+    "ethernet-evolution",
+    "mac-frame-structure",
+    "ethernet-addressing",
+    "standard-ethernet-implementations-overview",
+    "ethernet-10base5",
+    "ethernet-10base2",
+    "ethernet-10baseT",
+    "ethernet-10baseF",
+    "changes-bandwidth-sharing",
+    "bridged-ethernet",
+    "switched-ethernet",
+    "fast-ethernet",
+    "gigabit-ethernet"
+  ]
+}

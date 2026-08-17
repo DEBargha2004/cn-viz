@@ -1,0 +1,10 @@
+       Note
+
+                  Frame length:
+            Minimum: 64 bytes (512 bits)
+          Maximum: 1518 bytes (12,144 bits)
+
+
+
+
+13.9

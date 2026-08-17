@@ -1,0 +1,19 @@
+{
+  "id": "switched-ethernet",
+  "title": "Switched and Full-Duplex Ethernet",
+  "markdown": "A central **Switch** device (with visible port grid) sits in the\nmiddle; eight stations radiate outward from it, each on its own line\nto a switch port. Each station sits inside its own pink dashed \"Domain\"\ncone — i.e., a switch gives every single station its own dedicated\ncollision domain (contrast with the shared-domain bus topology in\nFigure 13.16a).\n\n{{viz:0}}\n\n### Full-Duplex Switched Ethernet\n\nA central **Switch** device with five stations radiating outward. Each\nconnection is drawn as a pair of arrows labeled **Transmit** and\n**Receive** (opposite directions on the same line), showing that in\nfull-duplex mode a station can send and receive simultaneously with no\ncollision — unlike the plain switched view, no domain\nshading is drawn here; the emphasis is on the duplex Transmit/Receive\narrow pairs instead.\n\n{{viz:1}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-radial-switch-stations",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-radial-switch-stations",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

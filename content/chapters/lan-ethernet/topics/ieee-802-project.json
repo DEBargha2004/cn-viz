@@ -1,0 +1,13 @@
+{
+  "id": "ieee-802-project",
+  "title": "IEEE Project 802 and the LAN Standard",
+  "markdown": "## IEEE Project 802\n\nIn 1985, the Computer Society of the IEEE started **Project 802** to set\nstandards that let equipment from different manufacturers\nintercommunicate. Project 802 defines the physical layer and the data\nlink layer functions of major LAN protocols.\n\nProject 802 splits the data link layer of the OSI/Internet model into\ntwo sublayers:\n\n- **LLC (Logical Link Control)** — sits on top, common to all IEEE LAN\n  protocols.\n- **MAC (Media Access Control)** — sits below LLC; a separate MAC\n  sublayer exists per LAN technology (Ethernet MAC, Token Ring MAC,\n  Token Bus MAC, ...).\n\n{{viz:0}}\n\nEach MAC sublayer has its own corresponding physical layer(s)\n(Ethernet physical layers, Token Ring physical layer, Token Bus\nphysical layer, ...), all riding on the transmission medium — mirroring\nhow the plain OSI/Internet model stacks Upper layers, Data link layer,\nand Physical layer directly on the transmission medium.\n",
+  "visualizations": [
+    {
+      "vizKey": "network-osi-ieee-layer-comparison",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

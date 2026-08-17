@@ -1,0 +1,16 @@
+        Example 13.2
+
+
+  Show how the address 47:20:1B:2E:08:EE is sent out on
+  line.
+
+
+  Solution
+  The address is sent left-to-right, byte by byte; for
+  each byte, it is sent right-to-left, bit by bit, as shown
+  below:
+
+
+
+
+13.15

@@ -1,0 +1,11 @@
+              Wired LANs: Ethernet
+                         Lecture 4
+
+                          Dr. Alak Roy
+                       Assistant Professor
+               Department of Information Technology
+                     Tripura University, India
+                   Email: alakroy@tripurauniv.in
+                     Website: www.alakroy.in
+
+McGraw-Hill                                   ©The McGraw-Hill Companies, Inc., 2000

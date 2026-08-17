@@ -1,0 +1,13 @@
+{
+  "id": "ethernet-10baseT",
+  "title": "10Base-T",
+  "markdown": "## 10Base-T (Twisted-Pair Ethernet)\n\nA **10Base-T hub** sits at\nthe center; each connects to a hub port via\n**two pairs of UTP cable**. This is a star topology — unlike\n10Base5/10Base2's bus/coax wiring, every station has its own dedicated\ncable run to the hub.\n\n{{viz:0}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-star-hub-ethernet",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

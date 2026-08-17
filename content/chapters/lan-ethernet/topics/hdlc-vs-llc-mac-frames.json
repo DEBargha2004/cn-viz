@@ -1,0 +1,13 @@
+{
+  "id": "hdlc-vs-llc-mac-frames",
+  "title": "HDLC Frame vs. LLC and MAC Frames",
+  "markdown": "The IEEE 802 LLC/MAC frame structure is derived from the HDLC frame.\n\nAn **HDLC frame** has: Address, Control, Upper-layer data, FCS.\n\n{{viz:0}}\n\nThis one HDLC frame maps onto **two** IEEE 802 frames:\n\n- The **LLC PDU** carries: DSAP (Destination Service Access Point),\n  SSAP (Source Service Access Point), Control, and Upper-layer data —\n  corresponding to the HDLC frame's Address/Control/data portion.\n- The **MAC frame** carries: MAC header, MAC payload, FCS — the LLC PDU\n  is encapsulated as the MAC payload.\n\n**DSAP** = Destination service access point. **SSAP** = Source service\naccess point.\n",
+  "visualizations": [
+    {
+      "vizKey": "network-hdlc-llc-mac-comparison",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

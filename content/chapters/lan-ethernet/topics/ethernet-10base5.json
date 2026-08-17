@@ -1,0 +1,13 @@
+{
+  "id": "ethernet-10base5",
+  "title": "10Base5",
+  "markdown": "## 10Base5 (Thick Ethernet)\n\nA single length of **thick coaxial cable** (maximum 500 m) runs between\ntwo cable-end caps. Along the cable, **transceivers** tap on; each transceiver connects via a **transceiver cable**\n(maximum 50 m) up to a station.\n\n{{viz:0}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-bus-topology-ethernet",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

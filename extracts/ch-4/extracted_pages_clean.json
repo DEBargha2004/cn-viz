@@ -1,0 +1,162 @@
+[
+  {
+    "page": 1,
+    "text": "              Wired LANs: Ethernet\n                         Lecture 4\n\n                          Dr. Alak Roy\n                       Assistant Professor\n               Department of Information Technology\n                     Tripura University, India\n                   Email: alakroy@tripurauniv.in\n                     Website: www.alakroy.in\n\nMcGraw-Hill                                   \u00a9The McGraw-Hill Companies, Inc., 2000"
+  },
+  {
+    "page": 2,
+    "text": "  13--1 IEEE STANDARDS\n  13\n\n   In 1985,\n      1985, the Computer Society of the IEEE started a\n   project, called Project 802,\n                           802, to set standards to enable\n   intercommunication among equipment from a variety\n   of manufacturers\n      manufacturers.. Project 802 is a way of specifying\n   functions of the physical layer and the data link layer\n   of major LAN protocols\n\n  Topics discussed in this section:\n Data Link Layer\n Physical Layer\n\n13.2"
+  },
+  {
+    "page": 3,
+    "text": "   Figure 13.1 IEEE standard for LANs\n\n13.3"
+  },
+  {
+    "page": 4,
+    "text": "   Figure 13.2 HDLC frame compared with LLC and MAC frames\n\n13.4"
+  },
+  {
+    "page": 5,
+    "text": "  13--2 STANDARD ETHERNET\n  13\n\n The original Ethernet was created in 1976 at Xerox\u2019s\n Palo Alto Research Center (PARC)\n                             (PARC).. Since then, it has\n gone through four generations\n                     generations.. We briefly discuss the\n Standard (or traditional) Ethernet in this section.\n\n  Topics discussed in this section:\n MAC Sublayer\n Physical Layer\n\n13.5"
+  },
+  {
+    "page": 6,
+    "text": "   Figure 13.3 Ethernet evolution through four generations\n\n13.6"
+  },
+  {
+    "page": 7,
+    "text": "   Figure 13.4 802.3 MAC frame\n\n13.7"
+  },
+  {
+    "page": 8,
+    "text": "   Figure 13.5 Minimum and maximum lengths\n\n13.8"
+  },
+  {
+    "page": 9,
+    "text": "       Note\n\n                  Frame length:\n            Minimum: 64 bytes (512 bits)\n          Maximum: 1518 bytes (12,144 bits)\n\n13.9"
+  },
+  {
+    "page": 10,
+    "text": "  Figure 13.6 Example of an Ethernet address in hexadecimal notation\n\n13.10"
+  },
+  {
+    "page": 11,
+    "text": "   Figure 13.7 Unicast and multicast addresses\n\n13.11"
+  },
+  {
+    "page": 12,
+    "text": "        Note\n\n        The least significant bit of the first byte\n              defines the type of address.\n         If the bit is 0, the address is unicast;\n                otherwise, it is multicast.\n\n13.12"
+  },
+  {
+    "page": 13,
+    "text": "        Note\n\n        The broadcast destination address is a\n        special case of the multicast address in\n                  which all bits are 1s.\n\n13.13"
+  },
+  {
+    "page": 14,
+    "text": "       Example 13.1\n\n  Define the type of the following destination addresses:\n  a. 4A:30:10:21:10:1A            b. 47:20:1B:2E:08:EE\n  c. FF:FF:FF:FF:FF:FF\n  Solution\n  To find the type of the address, we need to look at the\n  second hexadecimal digit from the left. If it is even,\n  the address is unicast. If it is odd, the address is\n  multicast. If all digits are F\u2019s, the address is\n  broadcast. Therefore, we have the following:\n  a. This is a unicast address because A in binary is\n  1010.\n  b. This is a multicast address because 7 in binary is\n  0111.\n13.14\n  c. This is a broadcast address because all digits are"
+  },
+  {
+    "page": 15,
+    "text": "        Example 13.2\n\n  Show how the address 47:20:1B:2E:08:EE is sent out on\n  line.\n\n  Solution\n  The address is sent left-to-right, byte by byte; for\n  each byte, it is sent right-to-left, bit by bit, as shown\n  below:\n\n13.15"
+  },
+  {
+    "page": 16,
+    "text": "  Figure 13.8 Categories of Standard Ethernet\n\n13.16"
+  },
+  {
+    "page": 17,
+    "text": "  Figure 13.9 Encoding in a Standard Ethernet implementation\n\n13.17"
+  },
+  {
+    "page": 18,
+    "text": "  Figure 13.10 10Base5 implementation\n\n13.18"
+  },
+  {
+    "page": 19,
+    "text": "  Figure 13.11 10Base2 implementation\n\n13.19"
+  },
+  {
+    "page": 20,
+    "text": "  Figure 13.12 10Base-T implementation\n\n13.20"
+  },
+  {
+    "page": 21,
+    "text": "  Figure 13.13 10Base-F implementation\n\n13.21"
+  },
+  {
+    "page": 22,
+    "text": "        Table 13.1 Summary of Standard Ethernet implementations\n\n13.22"
+  },
+  {
+    "page": 23,
+    "text": "  13--3 CHANGES IN THE STANDARD\n  13\n\n  The 10 10--Mbps Standard Ethernet has gone through\n  several changes before moving to the higher data\n  rates.. These changes actually opened the road to the\n  evolution of the Ethernet to become compatible with\n  other high\n          high--data\n                data--rate LANs\n\n  Topics discussed in this section:\n Bridged Ethernet\n Switched Ethernet\n Full-Duplex Ethernet\n\n13.23"
+  },
+  {
+    "page": 24,
+    "text": "  Figure 13.14 Sharing bandwidth\n\n13.24"
+  },
+  {
+    "page": 25,
+    "text": "  Figure 13.15 A network with and without a bridge\n\n13.25"
+  },
+  {
+    "page": 26,
+    "text": "  Figure 13.16 Collision domains in an unbridged network and a bridged network\n\n13.26"
+  },
+  {
+    "page": 27,
+    "text": "  Figure 13.17 Switched Ethernet\n\n13.27"
+  },
+  {
+    "page": 28,
+    "text": "  Figure 13.18 Full-duplex switched Ethernet\n\n13.28"
+  },
+  {
+    "page": 29,
+    "text": "  13--4 FAST ETHERNET\n  13\n\n  Fast Ethernet was designed to compete with LAN\n  protocols such as FDDI or Fiber Channel\n                                        Channel.. IEEE\n  created Fast Ethernet under the name 802.802.3u. Fast\n  Ethernet is backward\n                 backward--compatible with Standard\n  Ethernet, but it can transmit data 10 times faster at a\n  rate of 100 Mbps.\n\n  Topics discussed in this section:\n MAC Sublayer\n Physical Layer\n\n13.29"
+  },
+  {
+    "page": 30,
+    "text": "  Figure 13.19 Fast Ethernet topology\n\n13.30"
+  },
+  {
+    "page": 31,
+    "text": "  Figure 13.20 Fast Ethernet implementations\n\n13.31"
+  },
+  {
+    "page": 32,
+    "text": "  Figure 13.21 Encoding for Fast Ethernet implementation\n\n13.32"
+  },
+  {
+    "page": 33,
+    "text": "        Table 13.2 Summary of Fast Ethernet implementations\n\n13.33"
+  },
+  {
+    "page": 34,
+    "text": "  13--5 GIGABIT ETHERNET\n  13\n\n The need for an even higher data rate resulted in the\n design of the Gigabit Ethernet protocol (1000 Mbps)\n The IEEE committee calls the standard 802.\n                                       802.3z.\n\n  Topics discussed in this section:\n MAC Sublayer\n Physical Layer\n Ten-Gigabit Ethernet\n\n13.34"
+  },
+  {
+    "page": 35,
+    "text": "        Note\n\n           In the full-duplex mode of Gigabit\n             Ethernet, there is no collision;\n          the maximum length of the cable is\n         determined by the signal attenuation\n                       in the cable.\n\n13.35"
+  },
+  {
+    "page": 36,
+    "text": "  Figure 13.22 Topologies of Gigabit Ethernet\n\n13.36"
+  },
+  {
+    "page": 37,
+    "text": "  Figure 13.23 Gigabit Ethernet implementations\n\n13.37"
+  },
+  {
+    "page": 38,
+    "text": "  Figure 13.24 Encoding in Gigabit Ethernet implementations\n\n13.38"
+  },
+  {
+    "page": 39,
+    "text": "        Table 13.3 Summary of Gigabit Ethernet implementations\n\n13.39"
+  },
+  {
+    "page": 40,
+    "text": "        Table 13.4 Summary of Ten-Gigabit Ethernet implementations\n\n13.40"
+  }
+]

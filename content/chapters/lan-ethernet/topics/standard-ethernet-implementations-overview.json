@@ -1,0 +1,19 @@
+{
+  "id": "standard-ethernet-implementations-overview",
+  "title": "Standard Ethernet Implementations Overview",
+  "markdown": "### Summary of Standard Ethernet implementations\n\n| Characteristics | 10Base5 | 10Base2 | 10Base-T | 10Base-F |\n|---|---|---|---|---|\n| Media | Thick coaxial cable | Thin coaxial cable | 2 UTP | 2 Fiber |\n| Maximum length | 500 m | 185 m | 100 m | 2000 m |\n| Line encoding | Manchester | Manchester | Manchester | Manchester |\n\n{{viz:0}}\n\nA single station block: 10 Mbps data enters a **Manchester encoder**,\nwhich outputs onto twisted pairs or fibers; on the receive side, a\n**Manchester decoder** recovers the 10 Mbps data. Both encoder and\ndecoder sit inside the \"Station\" boundary box, connected outward to the\ntwo-wire medium.\n\n{{viz:1}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-category-tree",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-encoder-decoder-block",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

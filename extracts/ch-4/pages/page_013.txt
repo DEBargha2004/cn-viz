@@ -1,0 +1,10 @@
+        Note
+
+        The broadcast destination address is a
+        special case of the multicast address in
+                  which all bits are 1s.
+
+
+
+
+13.13

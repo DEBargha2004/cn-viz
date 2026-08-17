@@ -1,0 +1,25 @@
+{
+  "id": "gigabit-ethernet",
+  "title": "Gigabit and Ten-Gigabit Ethernet",
+  "markdown": "## Gigabit Ethernet\n\nThe need for an even higher data rate resulted in the design of the\n**Gigabit Ethernet** protocol (1000 Mbps). The IEEE committee calls the\nstandard **802.3z**.\n\n> **Note:** In the full-duplex mode of Gigabit Ethernet, there is no\n> collision; the maximum length of the cable is determined by the\n> signal attenuation in the cable.\n\n### Topologies of Gigabit Ethernet\n\nFour panels, extending the Fast Ethernet topology figure (13.19) with\ntwo more configurations:\n\n- **(a) Point-to-point**: two stations, one direct line.\n- **(b) Star**: one **Switch** connecting down to three stations.\n- **(c) Two stars**: two **Switch** boxes connected to each other by a\n  horizontal line, each switch also connecting down to three stations\n  (six stations total).\n- **(d) Hierarchy of stars**: a top-level **Switch** connects down to\n  two second-level **Switch** boxes (which are also connected to each\n  other horizontally); each second-level switch connects down to three\n  stations (six stations total, in a two-tier tree).\n\n{{viz:0}}\n\n### Gigabit Ethernet Implementations\n\n| Characteristics | 1000Base-SX | 1000Base-LX | 1000Base-CX | 1000Base-T |\n|---|---|---|---|---|\n| Media | Fiber short-wave | Fiber long-wave | STP | Cat 5 UTP |\n| Number of wires | 2 | 2 | 2 | 4 |\n| Maximum length | 550 m | 5000 m | 25 m | 100 m |\n| Block encoding | 8B/10B | 8B/10B | 8B/10B | *(none)* |\n| Line encoding | NRZ | NRZ | NRZ | 4D-PAM5 |\n\n{{viz:1}}\n\n### Encoding in Gigabit Ethernet\n\nTwo station-block diagrams:\n\n- **1000Base-SX, 1000Base-LX, and 1000Base-CX** (share one diagram):\n  8×125 Mbps lines feed a yellow **8B/10B block encoder** → 1.25 Gbps →\n  a pink **NRZ line encoder** → out over **two fibers or two STPs**\n  (symmetric decode path back).\n- **1000Base-T**: a single-stage pink **4D-PAM5 encoder**/**decoder**\n  pair, 8×125 Mbps in/out, fanning out to **4 UTP cables** with a mix\n  of send/receive/bidirectional arrows.\n\n{{viz:2}}\n\n## Ten-Gigabit Ethernet\n\n### Summary of Ten-Gigabit Ethernet implementations\n\n| Characteristics | 10GBase-S | 10GBase-L | 10GBase-E |\n|---|---|---|---|\n| Media | Short-wave 850-nm multimode | Long-wave 1310-nm single mode | Extended 1550-nm single mode |\n| Maximum length | 300 m | 10 km | 40 km |\n",
+  "visualizations": [
+    {
+      "vizKey": "network-switch-topology-panels",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-category-tree",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-two-stage-encoder-decoder-block",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

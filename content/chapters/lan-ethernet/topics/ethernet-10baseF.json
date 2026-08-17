@@ -1,0 +1,13 @@
+{
+  "id": "ethernet-10baseF",
+  "title": "10Base-F",
+  "markdown": "## 10Base-F (Fiber Ethernet)\n\nA **10Base-F hub** sits at the center with multiple\nfiber ports; stations each connect via **two fiber-optic cables** running from the hub up\nto the station. Same star topology as 10Base-T, but with a\ndouble-fiber drop per station instead of a UTP pair.\n\n{{viz:0}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-star-hub-ethernet",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

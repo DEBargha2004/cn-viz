@@ -1,0 +1,13 @@
+{
+  "id": "changes-bandwidth-sharing",
+  "title": "Changes to the Standard: Sharing Bandwidth",
+  "markdown": "## Changes in the Standard\n\nThe 10-Mbps Standard Ethernet went through several changes before\nmoving to higher data rates. These changes opened the road to\nEthernet's evolution toward compatibility with other high-data-rate\nLANs.\n\n{{viz:0}}\n\nTwo side-by-side Rate-vs-Time charts, both with a dashed reference line\nat 5 Mbps under a 10 Mbps axis ceiling:\n\n- **(a) First station** — pale pink bars, each labeled \"One frame\",\n  repeating over time.\n- **(b) Second station** — darker magenta/pink bars, each also labeled\n  \"One frame\", repeating over time in the same pattern.\n\nBoth stations' frames occupy the same rate/time pattern, illustrating\nthat when stations share a 10 Mbps link, each effectively gets an\naverage around 5 Mbps.\n",
+  "visualizations": [
+    {
+      "vizKey": "network-bandwidth-sharing-chart",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

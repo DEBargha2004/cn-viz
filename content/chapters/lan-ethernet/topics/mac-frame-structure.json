@@ -1,0 +1,19 @@
+{
+  "id": "mac-frame-structure",
+  "title": "802.3 MAC Frame Structure",
+  "markdown": "The 802.3 MAC frame consists of these fields, left to right:\n\n| Field | Size |\n|---|---|\n| Preamble | 7 bytes |\n| SFD (Start Frame Delimiter) | 1 byte |\n| Destination address | 6 bytes |\n| Source address | 6 bytes |\n| Length or type | 2 bytes |\n| Data and padding | variable |\n| CRC | 4 bytes |\n\n{{viz:0}}\n\n- **Preamble**: 56 bits of alternating 1s and 0s that alerts the\n  receiving system and synchronizes its clock.\n- **SFD**: the flag byte `10101011` marking the start of the frame.\n- Preamble + SFD together form the **physical layer header** (not part\n  of the frame itself, prepended by the physical layer).\n\nAn arrow beside the diagram indicates the frame is transmitted with\nthis field ordering, left field first onto the wire.\n\nDropping the physical-layer header (Preamble/SFD), the frame is shown\nas: Destination address (6 bytes), Source address (6 bytes), Length PDU\n(2 bytes), Data and padding (variable), CRC (4 bytes).\n\nTwo bracket annotations mark the payload boundaries:\n- Minimum payload length: 46 bytes\n- Maximum payload length: 1500 bytes\n\nAnd two brackets span the whole frame:\n- Minimum frame length: 512 bits (64 bytes)\n- Maximum frame length: 12,144 bits (1518 bytes)\n\n> **Note:** Frame length — Minimum: 64 bytes (512 bits). Maximum: 1518\n> bytes (12,144 bits).\n\n{{viz:1}}\n",
+  "visualizations": [
+    {
+      "vizKey": "network-mac-frame-field-diagram",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    },
+    {
+      "vizKey": "network-mac-frame-field-diagram",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}

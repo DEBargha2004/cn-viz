@@ -1,0 +1,13 @@
+{
+  "id": "ethernet-evolution",
+  "title": "Standard Ethernet and Its Evolution",
+  "markdown": "## Standard Ethernet\n\nThe original Ethernet was created in 1976 at Xerox's Palo Alto Research\nCenter (PARC). Since then it has gone through four generations. This\nsection briefly discusses the Standard (traditional) Ethernet.\n\nA root node \"Ethernet evolution\" branches into four generations, each\nshown as a pink box with its data rate captioned below in magenta:\n\n{{viz:0}}\n\n| Generation | Data Rate |\n|---|---|\n| Standard Ethernet | 10 Mbps |\n| Fast Ethernet | 100 Mbps |\n| Gigabit Ethernet | 1 Gbps |\n| Ten-Gigabit Ethernet | 10 Gbps |\n",
+  "visualizations": [
+    {
+      "vizKey": "network-category-tree",
+      "stateScope": "local",
+      "props": {},
+      "paramOverrides": {}
+    }
+  ]
+}
